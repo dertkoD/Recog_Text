@@ -1,0 +1,3902 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NsgSoft.Design</name>
+    </assembly>
+    <members>
+        <member name="T:NsgSoft.Design.NsgFilterServiceAttribute">
+            <summary>
+            Класс атрибута подключения сервиса фильтрации свойств типа.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterServiceAttribute.#ctor(System.Type)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="filterServiceType">Тип используемого сервиса фильтрации.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgFilterServiceAttribute.FilterServiceType">
+            <summary>
+            Получение типа используемого сервиса фильтрации.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgLocalizedPropertiesAttribute">
+            <summary>
+            Класс атрибута задания свойств, локализуемых в дизайнере.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLocalizedPropertiesAttribute.#ctor(System.String[])">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="properties">Список локализуемых свойств.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgMetaCollectionsAttribute">
+            <summary>
+            Класс атрибута задания коллекций свойств в метаданные.
+            </summary>
+            <remarks>Используется только для типов.</remarks>
+        </member>
+        <member name="M:NsgSoft.Design.NsgMetaCollectionsAttribute.#ctor(System.String[])">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="array">Список заданных свойств.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgMetaCollectionsAttribute.Properties">
+            <summary>
+            Получение списка свойств.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgVisibleGroupsAttribute">
+            <summary>
+            Класс атрибута задания групп, видимых в дизайнере.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgVisibleGroupsAttribute.#ctor(System.String[])">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="properties">Список видимых групп.</param>
+        </member>
+        <member name="T:NsgSoft.Design.INsgInheritedCollection">
+            <summary>
+            Интерфейс наследуемой коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgInheritedCollection.ElementType">
+            <summary>
+            Получение типа элемента коллекции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgInheritedCollection.CreateElement">
+            <summary>
+            Метод создания нового элемента коллекции.
+            </summary>
+            <returns>Возвращает созданный элемент.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.INsgInheritedCollection.DestroyElement(System.Object)">
+            <summary>
+            Метод уничтожения элемента коллекции.
+            </summary>
+            <param name="item">Удаляемый элемент.</param>
+        </member>
+        <member name="P:NsgSoft.Design.INsgInheritedCollection.Collection">
+            <summary>
+            Коллекция элементов, реализует ICollection.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgInheritedCollection.Inherited(NsgSoft.Common.INsgInheritedItem)">
+            <summary>
+            Метод проверки наследования, является ли переданный элемент отнаследованным элементом.
+            </summary>
+            <param name="element">Проверяемый элемент.</param>
+            <returns>Возвращает true, если проверяемый элемент является отнаследованным,
+             и false в обратном случае.</returns>
+        </member>
+        <member name="P:NsgSoft.Design.INsgInheritedCollection.Lock">
+            <summary>
+            Флаг блокировки сообщений от коллекции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgInheritedCollection.OnChanged">
+            <summary>
+            Метод бросает сообщение об изменении коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgInheritedCollection.ImageList">
+            <summary>
+            Получение списка картинок для коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgInheritedCollection.Parent">
+            <summary>
+            Получение компонента - владелеца коллекции.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgInheritedCollection`1">
+            <summary>
+            Класс наследуемой коллекции.
+            </summary>
+            <typeparam name="Template">Шаблон наследуемого элемента.</typeparam>
+        </member>
+        <member name="T:NsgSoft.Design.NsgInheritedCollection`1.NsgInheritedList">
+            <summary>
+            Класс внутренней коллекции элементов.
+            </summary>
+            <typeparam name="Template">Шаблон наследуемого элемента.</typeparam>
+        </member>
+        <member name="F:NsgSoft.Design.NsgInheritedCollection`1.NsgInheritedList.FullCopy">
+            <summary>
+            Флаг полного копирования свойств наследуемых элементов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.NsgInheritedList.#ctor(System.String,System.String)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="KeyPropertyName">Имя свойста, из которого брать ключ элемента.</param>
+            <param name="ParentPropertyName">Имя свойства, в котором хранится ссылка на коллекцию,
+             для контроля уникальности имен, в частности.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.NsgInheritedList.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="KeyPropertyName">Имя свойста, из которого брать ключ элемента.</param>
+            <param name="ParentPropertyName">Имя свойства, в котором хранится ссылка на коллекцию,
+             для контроля уникальности имен, в частности.</param>
+            <param name="ValidateName">Флаг проверки правильности имен в коллекции</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.NsgInheritedList.Add(`0)">
+            <summary>
+            Метод добавления элемента в коллекцию.
+            </summary>
+            <param name="item">Добавляемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.NsgInheritedList.item_KeyChanged(System.Object,System.Object,System.Object)">
+            <summary>
+            Делегат события о смене ключа у элемента коллекции.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="oldKey">Старый ключ.</param>
+            <param name="newKey">Новый ключ.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.#ctor(System.ComponentModel.Component,System.String,System.String)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="KeyPropertyName">Имя свойста, из которого брать ключ элемента.</param>
+            <param name="ParentPropertyName">Имя свойства, в котором хранится ссылка на коллекцию,
+             для контроля уникальности имен, в частности.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.#ctor(System.ComponentModel.Component,System.String,System.String,System.Boolean)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="KeyPropertyName">Имя свойста, из которого брать ключ элемента.</param>
+            <param name="ParentPropertyName">Имя свойства, в котором хранится ссылка на коллекцию,
+             для контроля уникальности имен, в частности.</param>
+             <param name="validateNames">Проводить проверку правильности имен.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Collection">
+            <summary>
+            Внутрення коллекция элементов.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.FullCopy">
+            <summary>
+            Флаг полного копирования свойств наследуемых элементов.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.IsGenerateMembersSupport">
+            <summary>
+            Поддерживается ли генерация переменных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.IsDesignMode">
+            <summary>
+            Возвращает true для DesignTime, иначе false.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.ToString">
+            <summary>
+            Метод приведения к строке.
+            </summary>
+            <returns>Возвращает строковое представление коллекции.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Add(`0)">
+            <summary>
+            Метод добавления элемента в коллекцию.
+            </summary>
+            <param name="item">Добавляемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.AddRange(`0[])">
+            <summary>
+            Метод добавления списка элементов в коллекцию.
+            </summary>
+            <param name="array">Список элементов.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Remove(`0)">
+            <summary>
+            Метод удаления элемента из коллекции.
+            </summary>
+            <param name="item">Удаляемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.RemoveAt(System.Int32)">
+            <summary>
+            Метод удаления элемента из коллекции по индексу.
+            </summary>
+            <param name="index">Индекс элемента.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Remove(System.String)">
+            <summary>
+            Метод удаления элемента из коллекции по ключу.
+            </summary>
+            <param name="key">Ключ элемента.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Insert(System.Int32,`0)">
+            <summary>
+            Метод вставки элемента по индексу.
+            </summary>
+            <param name="index">Индекс для вставки.</param>
+            <param name="item">Вставляемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.AddWithRename(`0)">
+            <summary>
+            Метод добавления элемента с переименованием, если необходимо.
+            </summary>
+            <param name="item">Добавляемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Clear">
+            <summary>
+            Метод очистки коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Item(System.String)">
+            <summary>
+            Получение элемента коллекции по ключу.
+            </summary>
+            <param name="key">Ключ.</param>
+            <returns>Возвращает элемент.</returns>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Item(System.Int32)">
+            <summary>
+            Получение элемента коллекции по индексу.
+            </summary>
+            <param name="index">Индекс элемента.</param>
+            <returns>Возвращает элемент.</returns>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Tag">
+            <summary>
+            Произвольная ссылка.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.ContainsKey(System.String)">
+            <summary>
+            Метод проверки наличия элемента в коллекции по ключу.
+            </summary>
+            <param name="key">Ключ.</param>
+            <returns>Возвращает булевый результат сравнения.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.IndexOf(`0)">
+            <summary>
+            Метод получения индекса элемента в коллекции.
+            </summary>
+            <param name="item">Элемент.</param>
+            <returns>Возвращает индекс элемента.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.IndexOf(System.String)">
+            <summary>
+            Метод получения индекса колонки в коллекции.
+            </summary>
+            <param name="value">Описатель колонки.</param>
+            <returns>Возвращает индекс, если она есть в коллекции, иначе -1.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.IsValidIndex(System.Int32)">
+            <summary>
+            Метод проверки валидности индекса для коллекции.
+            </summary>
+            <param name="index">Индекс.</param>
+            <returns>Возвращает true, если индекс валиден, иначе false.</returns>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Count">
+            <summary>
+            Получение количества элементов в коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Creator">
+            <summary>
+            Получение типа создателя коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Parent">
+            <summary>
+            Получение компонента - владелеца коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.ImageList">
+            <summary>
+            Получение и установка списка картинок для коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.ElementType">
+            <summary>
+            Получение типа элемента коллекции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.NsgSoft#Design#INsgInheritedCollection#Collection">
+            <summary>
+            Коллекция элементов, реализует ICollection.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgInheritedCollection`1.Lock">
+            <summary>
+            Флаг блокировки сообщений от коллекции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.CreateElement">
+            <summary>
+            Метод создания нового элемента коллекции.
+            </summary>
+            <returns>Возвращает созданный элемент. Если возвожна генерация переменной
+             на форму, то она осуществляется.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.CreateElement(System.String,System.String,System.Type)">
+            <summary>
+            Метод создания нового элемента коллекции.
+            </summary>
+            <param name="name">Имя элемента.</param>
+            <param name="generateName">Имя переменной для элемента.</param>
+            <param name="itemType">Тип элемента.</param>
+            <returns>Возвращает созданный элемент. Если возвожна генерация переменной
+             на форму, то она осуществляется.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.GetObjectOfType(System.Type)">
+            <summary>
+            Метод получения объекта по типу.
+            </summary>
+            <param name="itemType">Тип объекта.</param>
+            <returns>Возвращает созданный объект заданного типа.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.DestroyElement(System.Object)">
+            <summary>
+            Метод уничтожения элемента коллекции.
+            </summary>
+            <param name="item">Удаляемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.GenerateMember(System.String,System.Type)">
+            <summary>
+            Метод генерации переменной на форму с созданием экземпляра элемента коллекции.
+            </summary>
+            <param name="name">Имя для генерации.</param>
+            <param name="itemType">Тип элемента для генерации.</param>
+            <returns>Возвращает экземпляр элемента коллекции.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Inherited(NsgSoft.Common.INsgInheritedItem)">
+            <summary>
+            Метод проверки наследования, является ли переданный элемент отнаследованным элементом.
+            </summary>
+            <param name="element">Проверяемый элемент.</param>
+            <returns>Возвращает true, если проверяемый элемент является отнаследованным,
+             и false в обратном случае.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.Inherited(NsgSoft.Common.INsgInheritedItem,System.Boolean)">
+            <summary>
+            Метод проверки наследования. , является ли переданный элемент отнаследованным элементом.
+            </summary>
+            <param name="element">Проверяемый элемент.</param>
+            <param name="throwOnError">Бросать исключение при ошибках.</param>
+            <returns>Возвращает true, если проверяемый элемент является отнаследованным,
+             и false в обратном случае.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritedCollection`1.OnChanged">
+            <summary>
+            Метод бросает сообщение об изменении коллекции.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBasicDropDownButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBasicDropDownButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBasicDropDownButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgFindResult.Owner">
+            <summary>
+            Инициатор поиска
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.INsgFind">
+            <summary>
+            Интерфейс для поиска по строке.
+            
+            1. Создать и заполнить "NsgFindResultItem target", который будет передаваться по цепочке во все функции и методы
+            2. Вызвать "PrepareFind", если подготовка поиска прошла успешно, то вернется "true",
+            если нет "false" и дальше продолжать нет смысла.
+            3. Вызвать "FindString", желательно в параллельном потоке, вернет количество найденных элементов,
+            4. Далее можно получить результаты поиска через "GetFindResult"
+            и/или применить результаты поиска в самом объекте "ApplyFindResults" (должен вызвать "OnFilterChanged")
+            выбрав из полученных по "GetFindResult" данных элемент, можно выделить его в объекте используя "Select"
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgFind.PrepareFind(NsgSoft.Design.NsgFindResult@)">
+            <summary>
+            Подготовка поиска, выпоняется в основном потоке
+            Если в поиске необходимо обращаться к данным визуальных объектов,
+            то здесь необходимо эти данные сохранить в невизуальном объекте.
+            Если их немного то можно для хранения использовать передаваемый параметр target.result,
+            который будет передаваться дальше по цепочке.
+            </summary>
+            <param name="target">Параметры поиска</param>
+            <returns>Удалось ли подготовить данные для поиска</returns>
+        </member>
+        <member name="M:NsgSoft.Design.INsgFind.FindString(System.ComponentModel.BackgroundWorker,NsgSoft.Design.NsgFindResult@)">
+            <summary>
+            Поиск, выполняется в параллельном потоке
+            </summary>
+            <param name="worker">Менеджер текщего потока. Null если поиск выполняется в основном потоке.</param>
+            <param name="target">Параметры поиска</param>
+            <returns>Количество найденных элементов</returns>
+        </member>
+        <member name="M:NsgSoft.Design.INsgFind.GetFindResult(System.Int64,System.Int64,NsgSoft.Design.NsgFindResult)">
+            <summary>
+            Получение результатов поиска.
+            </summary>
+            <param name="position">Номер первого выбираемого результата</param>
+            <param name="count">Количество возращаемых результатов</param>
+            <param name="findResult">Параметры поиска</param>
+            <returns>Массив результатов</returns>
+        </member>
+        <member name="M:NsgSoft.Design.INsgFind.ApplyFindResults(NsgSoft.Design.NsgFindResult)">
+            <summary>
+            Применение результатов поиска в объекте, например наложение фильтра или выделение найденных элементов
+            </summary>
+            <param name="target">Параметры поиска</param>
+        </member>
+        <member name="M:NsgSoft.Design.INsgFind.Select(NsgSoft.Design.NsgFindResultItem)">
+            <summary>
+            Выделение найденного элемента в объекте
+            </summary>
+            <param name="findResultItem">Элемент результатов поиска</param>
+        </member>
+        <member name="E:NsgSoft.Design.INsgFind.OnFilterChanged">
+            <summary>
+            Подается объектом при изменении наложенного на него фильтра
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.FindParams">
+            <summary>
+            Параметры поиска
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.ShowUnCheckedItems">
+            <summary>
+            Показывать непомеченные элементы
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.ShowCheckedItems">
+            <summary>
+            Показывать помеченные элементы
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.Columns">
+            <summary>
+            Колонки ListView
+            ПОсле изменений необходимо подать RefreshList();
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.VisibleColumns">
+            <summary>
+            Видимые колонки ListView
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.Items">
+            <summary>
+            Элементы ListView, без фильтра
+            Пoсле изменений необходимо подать RefreshList();
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.VisibleItems">
+            <summary>
+            Видимые элементы ListView, с наложенным фильтром
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgListView.lockDraw">
+            <summary>
+            Флаг блокировки отрисовки контрола.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgListView.LockDrawing">
+            <summary>
+            Блокировка отрисовки контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            Оконная процедура.
+            </summary>
+            <param name="msg">Сообщение.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.RefreshList">
+            <summary>
+            Метод обновления списка после изменений.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.PrepareFind(NsgSoft.Design.NsgFindResult@)">
+            <summary>
+            NsgFindInterface - Подготовка поиска
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.FindString(System.ComponentModel.BackgroundWorker,NsgSoft.Design.NsgFindResult@)">
+            <summary>
+            NsgFindInterface - Поиск
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.ApplyFindResults(NsgSoft.Design.NsgFindResult)">
+            <summary>
+            NsgFindInterface - Применение результатов поиска
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.Select(NsgSoft.Design.NsgFindResultItem)">
+            <summary>
+            NsgFindInterface - Выбор найденного элемента
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.GetFindResult(System.Int64,System.Int64,NsgSoft.Design.NsgFindResult)">
+            <summary>
+            NsgFindInterface - Получение результатов поиска
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgListView.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListView.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgTextBox">
+            <summary>
+            Класс контрола Поле Редактирования.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.Image">
+            <summary>
+            Получение и задание картинки для поля редактирования.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.Caption">
+            <summary>
+            Получение и задание загововка для поля редактирования.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.Text">
+            <summary>
+            Получение и задание текста в поле редактирования.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.ShowImage">
+            <summary>
+            Получение и задание флага отображения картинки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.EditEnabled">
+            <summary>
+            Получение и задание флага редактируемости поля ввода.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.ShowCaption">
+            <summary>
+            Получение и задание флага отображения заголовка.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.TextBoxBorderStyle">
+            <summary>
+            Получение и задание стиля окантовки вложенного текста.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.BorderStyle">
+            <summary>
+            Получение и задание стиля окантовки контрола.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgTextBox.EndTextPoint">
+            <summary>
+            Получение точки курсора ввода в текущий момент относительно данного контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.textBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события изменения текста в поле ввода.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.textBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Обработчик события KeyDown.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.textBox_KeyPress(System.Object,System.Windows.Forms.KeyPressEventArgs)">
+            <summary>
+            Обработчик события KeyPress.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.textBox_KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Обработчик события KeyUp.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.textBox_BorderStyleChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события изменения стиля окантовки поля ввода.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.NsgTextBox_Load(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события загрузка контрола.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.SelectText">
+            <summary>
+            Метод выделения строки текста и переход в режим редактирования.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgTextBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTextBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgButton.StringOrientation">
+            <summary>
+            Перечисление направленности текста.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.StringOrientation.Horizontal">
+            <summary>
+            Горизонтально.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.StringOrientation.VerticalLeft">
+            <summary>
+            Вертикально слева.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.StringOrientation.VerticalRight">
+            <summary>
+            Вертикально справа.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgButton.LockResize">
+            <summary>
+            Перечисление направленности текста.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.LockResize.Horizontal">
+            <summary>
+            Горизонтально.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.LockResize.Vertical">
+            <summary>
+            Вертикально.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.LockResize.All">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.IsDesignMode">
+            <summary>
+            Метод проверки режима компонента.
+            </summary>
+            <returns>Возвращает тип режима.</returns>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.State">
+            <summary>
+            Номер состояние кнопки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.TextOrientation">
+            <summary>
+            Получение и установка направленности текста.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.WordWrap">
+            <summary>
+            Получение и установка переноса слов текста
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.ReadOnly">
+            <summary>
+            Получение и установка активности кнопки 
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.AutoSize">
+            <summary>
+            Авторазмер. Наследовано от UserControl.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.AutoSizeImage">
+            <summary>
+            Получение и установка авто массштабирования картинки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.ShowBorder">
+            <summary>
+            Получение и установка видимости рамочки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.Down">
+            <summary>
+            Флаг положения кнопки (нажата / не нажата)
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.Flag">
+            <summary>
+            Флаг, показывающий может и кнопка оставаться нажатой
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.ImagePosition">
+            <summary>
+            Положение картинки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.DialogResult">
+            <summary>
+            Результат
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.TextPosition">
+            <summary>
+            Положение текста
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.#ctor(System.Boolean)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="isStateButton">Флаг типа кнопки (кнопка/переключатель)</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.PrecashImages">
+            <summary>
+            Кэширование картинок до отображения контрола.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.ImageList">
+            <summary>
+            Контейнер картинок
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.ImageKey">
+            <summary>
+            Ключ картики
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.DisabledImageKey">
+            <summary>
+            Ключ неактивной картинки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.DisabledImage">
+            <summary>
+            Неактивная картинка
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.Text">
+            <summary>
+            Текст
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.ActiveBackColor">
+            <summary>
+            Цвет фона при наведении мышки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgButton.Font">
+            <summary>
+            Шрифт
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.DrawButton(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Прорисовка кнопки
+            </summary>
+            <param name="Graphics">Graphics</param>
+            <param name="Rect">Область прорисовки</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.DrawImage(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Прорисовка картинки
+            </summary>
+            <param name="gr">Graphics</param>
+            <param name="rect">Область прорисовки</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.getImageToDraw(System.Boolean)">
+            <summary>
+            Метод получения картинки для отрисовки.
+            </summary>
+            <param name="isEnabled">Включена ли картинка.</param>
+            <returns>Возвращает картинку.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Обработка прорисовки
+            </summary>
+            <param name="pe">Аргументы прорисовки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.PerformClick">
+            <summary>
+            Метод инициации нажатия кнопки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.mouseDown">
+            <summary>
+            Обработка нажатия кнопки
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.mouseDown(System.Boolean)">
+            <summary>
+            Обработка нажатия кнопки
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.resize">
+            <summary>
+            Метод пересчета размеров контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.resize(System.Boolean)">
+            <summary>
+            Метод пересчета размеров контрола.
+            </summary>
+            <param name="withRefresh">Выполнить по окончанию перерисовку контрола.</param>
+        </member>
+        <member name="E:NsgSoft.Design.NsgButton.AsyncClick">
+            <summary>
+            Асинхронная обработка нажатия
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgButton.AsyncClickCompleted">
+            <summary>
+            Окончание асинхронной обработки нажатия
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.CancelAsyncClick">
+            <summary>
+            Выставленное в true отменяет вызов асинхронного клика.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.BeginInit">
+            <summary>
+            Начало инициализации компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.EndInit">
+            <summary>
+            Окончание инициализации компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.preloadImages">
+            <summary>
+            Метд загрузки картинок.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.EndInitialization">
+            <summary>
+            Метод окончания инициализации.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButton.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButton.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButtonsPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButtonsPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButtonsPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgCancelBox">
+            <summary>
+            Класс контрола диалога отмены.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgCancelBox.TaskGroup">
+            <summary>
+            Получение группы ЗАДАЧИ.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgCancelBox.CancelButtonPress">
+            <summary>
+            Событие о нажатии кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.OnCancelButtonPress">
+            <summary>
+            Метод вызова события о нажатии кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgCancelBox.ContinueButtonPress">
+            <summary>
+            Событие о нажатии кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.OnContinueButtonPress">
+            <summary>
+            Метод вызова события о нажатии кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки фона контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.DrawRoundRect(System.Drawing.Graphics,System.Drawing.Pen,System.Drawing.Rectangle)">
+            <summary>
+            Метод рисования закругленного прямоугольника.
+            </summary>
+            <param name="graphics">Графика.</param>
+            <param name="pen">Кисть.</param>
+            <param name="rect">Прямоугольник.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.FillRoundRect(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.Rectangle)">
+            <summary>
+            Метод заливки закругленного прямоугольника.
+            </summary>
+            <param name="graphics">Графика.</param>
+            <param name="brush">Кисть.</param>
+            <param name="rect">Прямоугольник.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.FillRoundRect(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Метод заливки закругленного прямоугольника.
+            </summary>
+            <param name="graphics">Графика.</param>
+            <param name="brush">Кисть.</param>
+            <param name="gp">Путь по точкам.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.createRoundRectanglePath(System.Drawing.Rectangle)">
+            <summary>
+            Метод получения пути из точек для прямоугольника.
+            </summary>
+            <param name="rect">Прямоугольник.</param>
+            <returns>Возвращает путь.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.nsgButtonRun_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.nsgButtonCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.timerEnable_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик таймера включения.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.NsgCancelBox_VisibleChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик изменения видимости контрола.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgCancelBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgDisablePanel">
+            <summary>
+            Класс блокирующего форму контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.#ctor">
+            <summary>
+            Конструктор контрола.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDisablePanel.CreateParams">
+            <summary>
+            Параметры создания.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDisablePanel.OwnerForm">
+            <summary>
+            Форма-владелец.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDisablePanel.CancelBoxShow">
+            <summary>
+            Событие о показе диалога ОТМЕНЫ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnCancelBoxShow">
+            <summary>
+            Метод вызова события о показе диалога ОТМЕНЫ.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDisablePanel.CancelBoxHide">
+            <summary>
+            Событие о скрытии диалога ОТМЕНЫ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnCancelBoxHide">
+            <summary>
+            Метод вызова события о скрытии диалога ОТМЕНЫ.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDisablePanel.Cancel">
+            <summary>
+            Событие о нажатии кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnCancel">
+            <summary>
+            Метод вызова события о нажатии кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDisablePanel.Continue">
+            <summary>
+            Событие о нажатии кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnContinue">
+            <summary>
+            Метод вызова события о нажатии кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки контрола фона.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnClick(System.EventArgs)">
+            <summary>
+            Обработчик нажатия по панели.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Обработчик изменения размера.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.setDialogToCenter">
+            <summary>
+            Метод центрирования диалога.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.timer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик таймера.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.nsgCancelBox_CancelButtonPress(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.nsgCancelBox_ContinueButtonPress(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.ShowCancelDialog">
+            <summary>
+            Метод отображения диалога ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.HideCancelDialog">
+            <summary>
+            Метод скрытия диалога ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.Clear">
+            <summary>
+            Метод очистки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgDisablePanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDisablePanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgFindTextBox.ApplyFindResults">
+            <summary>
+            Применение результатов поиска
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFindTextBox.OnApplyFindResults(NsgSoft.Design.NsgFindResult)">
+            <summary>
+            Применение результатов поиска
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgFindTextBox.FindString">
+            <summary>
+            Поиск строки, вызывается в другом потоке
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFindTextBox.OnFindString(System.ComponentModel.BackgroundWorker,NsgSoft.Design.NsgFindResult@)">
+            <summary>
+            Поиск строки, вызывается в другом потоке
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgFindTextBox.PrepareFind">
+            <summary>
+            Подготовка поиска
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFindTextBox.OnPrepareFind(NsgSoft.Design.NsgFindResult@)">
+            <summary>
+            Подготовка поиска
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgFindTextBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFindTextBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFindTextBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgGrid.FilterChanged(System.String)">
+            <summary>
+            Triggers the OnFilterChanged event.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgListViewPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListViewPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgListViewPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.Controls.NsgCompositeButton.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.Controls.NsgCompositeButton.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.Controls.NsgCompositeButton.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgToolStrip">
+            <summary>
+            Класс панели инструментов.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgToolStrip.autoSizeChilds">
+            <summary>
+            Флаг автомасштабирования дочерних
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgToolStrip.#ctor">
+            <summary>
+            Конструктор панели инструментов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgToolStrip.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>
+            Обработка добавления нового контрола на панель.
+            </summary>
+            <param name="e">Аргументы.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgToolStrip.BeginInit">
+            <summary>
+            Начало инициализации.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgToolStrip.EndInit">
+            <summary>
+            Окончание инициализации.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgToolStrip.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgToolStrip.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgToolStrip.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgToolStripDesigner">
+            <summary>
+            Класс дизайнер панели инструментов.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgToolStripDesigner.SelectionRules">
+            <summary>
+            Правила выделения объекта в дизайнере.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgViewStylesButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgViewStylesButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgViewStylesButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgWaitingRing">
+            <summary>
+            Класс контрола ожидания.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgWaitingRing.DrawData">
+            <summary>
+            Класс данных на отрисовку.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.DrawData.#ctor(System.Drawing.Size,System.Int32,System.Single)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="ownerSize">Размер владельца (обязательно ненулевой).</param>
+            <param name="blockCount">Количество блоков (не менее трех).</param>
+            <param name="thickProcent">Процент толщины блока относительно
+             внешнего диаметра кольца (не менее 5%).</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.TextRectangle">
+            <summary>
+            Область для текста.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.CenterPoint">
+            <summary>
+            Центральная точка.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.ButtonRing">
+            <summary>
+            Кольцо кнопки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.ButtonRegion">
+            <summary>
+            Регион кнопки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.OuterRing">
+            <summary>
+            Внешнее кольцо.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.InnerRing">
+            <summary>
+            Внутреннее кольцо.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.FullRing">
+            <summary>
+            Полное кольцо.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.DrawData.Blocks">
+            <summary>
+            Массив блоков кольца.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.DrawData.createFigures(System.Drawing.Size,System.Int32,System.Single)">
+            <summary>
+            Метод создания блоков. Заполняет данными список figures.
+            </summary>
+            <param name="ownerSize">Размер владельца (обязательно ненулевой).</param>
+            <param name="pieCount">Количество блоков в кольце (не менее трех).</param>
+            <param name="thickProcent">Процент толщины блока относительно
+             радиуса внешнего кольца (не менее 5%).</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.DrawData.getRectangle(System.Drawing.Point,System.Int32)">
+            <summary>
+            Метод получения прямоугольника от центральной точки.
+            </summary>
+            <param name="center">Центральная точка.</param>
+            <param name="radius">Радиус.</param>
+            <returns>Возвращает прямоугольник.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.DrawData.calculateBlocks(System.Int32,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Метод подсчета блоков.
+            </summary>
+            <param name="pieCount">Количество блоков.</param>
+            <param name="outerRect">Внешний квадрат.</param>
+            <param name="innerRect">Внутренний квадрат.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.DrawData.calculateRings(System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Метод подсчета колец.
+            </summary>
+            <param name="outerRect">Внешний квадрат.</param>
+            <param name="innerRect">Внутренний квадрат.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.DrawData.calculateRegion(System.Drawing.Rectangle,System.Drawing.Rectangle,System.Drawing.Rectangle)">
+            <summary>
+            Метод подсчета региона.
+            </summary>
+            <param name="outerRect">Внешний квадрат.</param>
+            <param name="innerRect">Внутренний квадрат.</param>
+            <param name="buttonRect">Квадрат кнопки.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgWaitingRing.NsgWaitingRingDesigner">
+            <summary>
+            Позволяет разрешать/запрещать вертикально изменение контрола NsgInput
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.#ctor">
+            <summary>
+            Конструктор контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.ProgressProvider">
+            <summary>
+            Провайдер прогресса. Задается для отображения процента исполнения 
+             блокирующей задачи.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.CancelQuestion">
+            <summary>
+            Вопрос при нажатии ОТМЕНА. Если пустая строка, то ничего не спрашивать.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.WorkText">
+            <summary>
+            Рабочий текст.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.CancelText">
+            <summary>
+            Текст отмены.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.CancelMode">
+            <summary>
+            Режим отмены.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.ReselectBlockTime">
+            <summary>
+            Время перехода выделения на новый блок (в миллисекундах).
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.BlocksCount">
+            <summary>
+            Количество блоков в кольце.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.BlockThickProcent">
+            <summary>
+            Процент толщины блока относительно
+             радиуса внешнего кольца (не менее 5%).
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgWaitingRing.Visible">
+            <summary>
+            Видимость объекта
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgWaitingRing.CancelButtonClick">
+            <summary>
+            Событие о нажатии кнопки отмена.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnCancelButtonClick">
+            <summary>
+            Метод вызыва события о нажатии кнопки отмена.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgWaitingRing.Hiding">
+            <summary>
+            Закрытие объекта
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnHiding">
+            <summary>
+            Матод вызова события о закрытии объекта
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.IsMouseOverButton">
+            <summary>
+            Метод проверки нахождения курсора мыши над кнопкой контрола.
+            </summary>
+            <returns>Возвращает булевый результат проверки.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.initDrawData">
+            <summary>
+            Метод задания данных на отрисовку.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.initTimer">
+            <summary>
+            Метод инициализации таймера.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.blinkRun(System.Boolean)">
+            <summary>
+            Метод запуска/отключения мерцания.
+            </summary>
+            <param name="value">Включить.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.paintControl(System.Drawing.Graphics)">
+            <summary>
+            Метод отрисовки контрола.
+            </summary>
+            <param name="gr">Графика.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.Show">
+            <summary>
+            Показывает объект с задержкой.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.Hide">
+            <summary>
+            Скрывает объект с задержкой.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnMouseHover(System.EventArgs)">
+            <summary>
+            Метод вызывается при наведении мыши на контрол.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnMouseLeave(System.EventArgs)">
+            <summary>
+            Метод вызывается при выходе мыши из области контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Метод вызывается при нажатии мыши в области контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Метод вызывается при отпускании мыши в области контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Метод вызывается при изменении размера контрола.
+            </summary>
+            <param name="e">Аргументы.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод вызывается при отрисовке контрола.
+            </summary>
+            <param name="e">Аргументы отрисовки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.OnVisibleChanged(System.EventArgs)">
+            <summary>
+            Метод вызывается при изменении видимости контрола.
+            </summary>
+            <param name="e">Аргументы отрисовки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.timerSelect_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработки событий таймера перерисовки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.timerCancel_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработки событий таймера отмены.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.timerBlink_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработки событий таймера мерцания.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.progressProvider_ProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Обработка изменения прогресса в провайдере прогресса.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgWaitingRing.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgWaitingRing.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.ToolStripItems.NsgToolStripFindBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripFindBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.ToolStripItems.NsgToolStripStateButton">
+            <summary>
+            Компонент панели инструментов - кнопка состояния.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripStateButton.#ctor">
+            <summary>
+            Конструктор компонента.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.ToolStripItems.NsgToolStripStateButton.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripStateButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripStateButton.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.ToolStripItems.NsgToolStripTextBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripTextBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripTextBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.ToolStripItems.NsgToolStripViewStylesButton.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripViewStylesButton.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.ToolStripItems.NsgToolStripViewStylesButton.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgArrayConverter">
+            <summary>
+            Класс конвертер массивов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgArrayConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод преобразования к строке.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgArrayConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Метод проверки возможности конвертации в заданный в редакторе тип.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgConfigurationAssemblyConverter">
+            <summary>
+            Класс конвертер сборки конфигурации.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgConfigurationAssemblyConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод преобразования к строке.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgDataTypeLocalizeConverter">
+            <summary>
+            Класс конвертер типа данных к строке.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDataTypeLocalizeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод преобразования к строке.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDataTypeLocalizeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Метод проверки возможности конвертации в заданный в редакторе тип.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgEnumTypeConverter">
+            <summary>
+            Класс конвертер перечислений.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgEnumTypeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод конвертации к строке.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgObjectDescriptorConverter">
+            <summary>
+            Класс конвертер типа INsgObjectDescriptor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgComponentDesigner">
+            <summary>
+            Класс дизайнера компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Переопределение метода инициализации дизайнера.
+            </summary>
+            <param name="component">Компонент для дизайна.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.InitializeNewComponent(System.Collections.IDictionary)">
+            <summary>
+            Инициализация нового компонента.
+            </summary>
+            <param name="defaultValues">Значения.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.Dispose(System.Boolean)">
+            <summary>
+            Переопределение метода освобождения ресурсов дизайнера.
+            </summary>
+            <param name="disposing">Флаг освобождения.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.OnComponentChanged(System.Object,System.ComponentModel.Design.ComponentChangedEventArgs)">
+            <summary>
+            Метод обработчик события изменения свойств компонента.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.OnComponentAdded(System.Object,System.ComponentModel.Design.ComponentEventArgs)">
+            <summary>
+            Метод обработчик события добавления компонента.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.OnDocumentLoadComplete(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработчик события полной загрузки дизайнеров страницы кода с данным компонентов.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.OnDocumentActivated(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработчик события активации дизайнера компонентов.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentDesigner.GetService(System.Type)">
+            <summary>
+            Метод получения сервиса дизайна.
+            </summary>
+            <param name="serviceType">Тип сервиса.</param>
+            <returns>Возвращает объект сервиса.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgControlDesigner">
+            <summary>
+            Класс дизайнера контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Переопределение метода инициализации дизайнера.
+            </summary>
+            <param name="component">Компонент для дизайна.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.InitializeNewComponent(System.Collections.IDictionary)">
+            <summary>
+            Инициализация нового компонента.
+            </summary>
+            <param name="defaultValues">Значения.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.Dispose(System.Boolean)">
+            <summary>
+            Переопределение метода освобождения ресурсов дизайнера.
+            </summary>
+            <param name="disposing">Флаг освобождения.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.OnComponentChanged(System.Object,System.ComponentModel.Design.ComponentChangedEventArgs)">
+            <summary>
+            Метод обработчик события изменения свойств компонента.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.OnDocumentLoadComplete(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработчик события полной загрузки дизайнеров страницы кода с данным компонентов.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.OnDocumentActivated(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработчик события активации дизайнера компонентов.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgControlDesigner.GetService(System.Type)">
+            <summary>
+            Метод получения сервиса дизайна.
+            </summary>
+            <param name="serviceType">Тип сервиса.</param>
+            <returns>Возвращает объект сервиса.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgDesigner">
+            <summary>
+            Базовый класс дизайнера.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDesigner.ComponentChanged">
+            <summary>
+            Событие об изменении компонента.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDesigner.ComponentAdded">
+            <summary>
+            Событие об добавлении компонента.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDesigner.Activated">
+            <summary>
+            Событие об активации документа дизайна.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgDesigner.LoadComplete">
+            <summary>
+            Событие о полной загрузке документа дизайна.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDesigner.HostService">
+            <summary>
+            Интерфейс сервиса управления компонентами.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDesigner.Provider">
+            <summary>
+            Провайдер сервисов дизайна.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.Initialize(System.ComponentModel.IComponent,System.IServiceProvider)">
+            <summary>
+            Переопределение метода инициализации дизайнера.
+            </summary>
+            <param name="component">Компонент.</param>
+            <param name="provider">Провайдер сервисов.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.Dispose(System.Boolean)">
+            <summary>
+            Переопределение метода освобождения ресурсов дизайнера.
+            </summary>
+            <param name="disposing">Флаг освобождения.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.RefreshTypeDescriptor(System.Object,System.Type)">
+            <summary>
+            Метод обновления дескриптора типа.
+            </summary>
+            <param name="sender">Инициатор обновления типа.</param>
+            <param name="componentToRefresh">Тип компонента на обновление.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.InitializeComponent(System.ComponentModel.Component)">
+            <summary>
+            Метод инициализации нового компонента на форме.
+            </summary>
+            <param name="item">Новый компонент.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.SetComponentModifier(System.ComponentModel.IComponent,System.CodeDom.MemberAttributes)">
+            <summary>
+            Метод задания атрибута доступа для компонента.
+            </summary>
+            <param name="component">Компонент.</param>
+            <param name="attribute">Тип генерируемой переменной.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.GetComponentModifier(System.ComponentModel.IComponent)">
+            <summary>
+            Метод получения атрибута доступа компонента.
+            </summary>
+            <param name="component">Компонент.</param>
+            <returns>Возвращает модификатор доступа.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.OutputStringToEnvironment(System.String)">
+            <summary>
+            Метод вывода строки в окно среды разработки.
+            </summary>
+            <param name="text">Текстовая строка.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.IsComponentInDesignMode(System.ComponentModel.IComponent)">
+            <summary>
+            Проверяет, находится ли компонент в режиме дизайна.</summary>
+            <param name="component">Компонент.</param>
+            <returns>Возвращает true, если компонент открыт в дизайнере.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.GetDesignerHost(System.ComponentModel.Component)">
+            <summary>
+            Метод получения хоста дизайнера.
+            </summary>
+            <param name="component">Компонент, для которого получается хост.</param>
+            <returns>Возвращает экземпляр хоста дизайнера.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.GetService(System.ComponentModel.Component,System.Type)">
+            <summary>
+            Метод получения сервиса времени дизайна по типу.
+            </summary>
+            <param name="component">Компонент, для которого получается сервис.</param>
+            <param name="serviceType">Тип получаемого сервиса.</param>
+            <returns>Возвращает объект сервис.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.OnComponentChanged(System.Object,System.ComponentModel.Design.ComponentChangedEventArgs)">
+            <summary>
+            Метод обработчик события изменения свойств компонента.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.OnComponentAdded(System.Object,System.ComponentModel.Design.ComponentEventArgs)">
+            <summary>
+            Метод обработчик события добавления компонента.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.OnDocumentLoadComplete(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработчик события полной загрузки дизайнеров страницы кода с данным компонентов.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesigner.OnDocumentActivated(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработчик события активации дизайнера компонентов.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgFilterService">
+            <summary>
+            Класс фильтрации описания типа.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterService.#ctor(System.ComponentModel.Design.ITypeDescriptorFilterService)">
+            <summary>
+            Конструктор класса фильтрации.
+            </summary>
+            <param name="oldService">Предыдущий сервис ITypeDescriptorFilterService.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterService.FilterAttributes(System.ComponentModel.IComponent,System.Collections.IDictionary)">
+            <summary>
+            Метод фильтрации атрибутов класса.
+            </summary>
+            <param name="component">Компонент, от которого запрашиваются атрибуты.</param>
+            <param name="attributes">Список атрибутов для фильтрации.</param>
+            <returns>Результат фильтрации.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterService.FilterEvents(System.ComponentModel.IComponent,System.Collections.IDictionary)">
+            <summary>
+            Метод фильтрации событий класса.
+            </summary>
+            <param name="component">Компонент, от которого запрашиваются события.</param>
+            <param name="events">Список событий для фильтрации.</param>
+            <returns>Результат фильтрации.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterService.FilterProperties(System.ComponentModel.IComponent,System.Collections.IDictionary)">
+            <summary>
+            Метод фильтрации свойтсв класса.
+            </summary>
+            <param name="component">Компонент, от которого запрашиваются свойтсва.</param>
+            <param name="properties">Список свойстсв для фильтрации.</param>
+            <returns>Результат фильтрации.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterService.ChangeModifierConverter(System.Collections.IDictionary,System.Boolean)">
+             <summary>
+            Метод подмены конвертера свойству Modifiers.
+             </summary>
+             <param name="properties">Список свойстсв для фильтрации.</param>
+             <param name="supportInheritance">Поддержка наследования компонентов.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgFilterService.UpdateDescriptor(System.ComponentModel.PropertyDescriptor,System.Attribute[])">
+            <summary>
+            Метод создания описателя свойства с заданным атрибутом.
+            </summary>
+            <param name="desc">Базовый описатель.</param>
+            <param name="atrs">Список добавляемых с базовому описателю атрибутов.</param>
+            <returns>Возвращает новый описатель.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgButtonStateEditor">
+            <summary>
+            Класс редактор перечислений.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButtonStateEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Метод редактирования значения объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButtonStateEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод установки типа редактора.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgImageKeyEditor">
+            <summary>
+            Класс редактор перечислений.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgImageKeyEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Метод редактирования значения объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgImageKeyEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод установки типа редактора.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgButtonStateEditorForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButtonStateEditorForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgButtonStateEditorForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgChoosingForm">
+            <summary>
+            Класс формы выбора компонентов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgChoosingForm.SelectedObject">
+            <summary>
+            Получение и установка выбранного в текущий момент объекта.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgChoosingForm.IsClearButtonVisible">
+            <summary>
+            Получение и установка флага видимости кнопки ОЧИСТИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.FillList(System.Object[],System.String)">
+            <summary>
+            Метод заполнения дерева списком.
+            </summary>
+            <param name="objs">Объекты на добавление.</param>
+            <param name="imageKey">Имя картинки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.AddList(System.Object[],System.String)">
+            <summary>
+            Метод добавления в дерево списка.
+            </summary>
+            <param name="objs">Объекты на добавление.</param>
+            <param name="imageKey">Имя картинки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.AddObject(System.Object,System.String)">
+            <summary>
+            Метод добавления в дерево объекта.
+            </summary>
+            <param name="obj">Объект на добавление.</param>
+            <param name="imageKey">Имя картинки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.buttonOK_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события нажатие на кнопку ОК.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.buttonClear_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события нажатие на кнопку ОЧИСТИТЬ.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.NsgChoosingForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            Обработчик события закрытие формы.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.NsgChoosingForm_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Обработчик события нажатие с клавиатуры.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.objectSelectTree_NodeMouseDoubleClick(System.Object,System.Windows.Forms.TreeNodeMouseClickEventArgs)">
+            <summary>
+            Метод - обработчик события двойной клик мыши в узле.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.objectSelectTree_AfterCheck(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            Метод - обработчик события выделение узла галочкой.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="F:NsgSoft.Design.NsgChoosingForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgChoosingForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgComponentsChoosingForm">
+            <summary>
+            Класс формы выбора компонентов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgComponentsChoosingForm.SelectedComponent">
+            <summary>
+            Получение и установка выбранного в текущий момент компонента.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgComponentsChoosingForm.CheckComponentForAddingEventHandler">
+            <summary>
+            Делегат проверки добавляемого компонента.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="component">Компонент на добавление.</param>
+        </member>
+        <member name="E:NsgSoft.Design.NsgComponentsChoosingForm.CheckComponentForAdding">
+            <summary>
+            Событие проверки добавляемого компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.OnCheckComponentForAdding(System.ComponentModel.IComponent)">
+            <summary>
+            Метод инициирует событие проверки добавляемого компонента.
+            </summary>
+            <param name="component">Компонент на добавление.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.FillComponentsList(System.ComponentModel.Design.IReferenceService,System.Type)">
+            <summary>
+            Метод заполнения дерева компонентов.
+            </summary>
+            <param name="service">Сервис ссылок.</param>
+            <param name="searchType">Тип компонентов для поиска.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.createNode(System.ComponentModel.Design.IReferenceService,System.ComponentModel.IComponent)">
+            <summary>
+            Метод создания узла дерева.
+            </summary>
+            <param name="service">Сервис ссылок.</param>
+            <param name="component">Компонент.</param>
+            <param name="nodes">Уронень дерева.</param>
+            <returns>Возвращает узел дерева или null, если не создан.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.objectSelectTree_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            Обработчик события выделение строки в дереве.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgComponentsChoosingForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentsChoosingForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgEnumEditor">
+            <summary>
+            Класс редактор перечислений.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgEnumEditor.#ctor(System.Type,System.Object,NsgSoft.Common.NsgPropertyDependenceAttribute.DependenceTypes)">
+            <summary>
+            Конструктор класса
+            </summary>
+            <param name="inType">Тип редатируемого объекта</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgEnumEditor.#ctor(System.Type)">
+            <summary>
+            Конструктор класса
+            </summary>
+            <param name="inType">Тип редатируемого объекта</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgEnumEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Метод редактирования значения объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgEnumEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод установки типа редактора.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.Forms.NsgImageKeyEditorForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.Forms.NsgImageKeyEditorForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.Forms.NsgImageKeyEditorForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.Forms.NsgTextViewForm">
+            <summary>
+            Форма просмотра текста.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.Forms.NsgTextViewForm.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.Forms.NsgTextViewForm.ViewText">
+            <summary>
+            Просматриваемый текст.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.Forms.NsgTextViewForm.buttonOK_Click(System.Object,System.EventArgs)">
+            <summary>
+            Кнопка закрытия.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.Forms.NsgTextViewForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.Forms.NsgTextViewForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.Forms.NsgTextViewForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgSimpleEdit.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgSimpleEdit.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgSimpleEdit.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgReadOnlyProvider.ReadOnly">
+            <summary>
+            Получение и установка флага ТОЛЬКО ЧТЕНИЕ.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.INsgReadOnlyProvider.ReadOnlyChanged">
+            <summary>
+            Событие о изменении состояния ТОЛЬКО ДЛЯ ЧТЕНИЯ.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.ReadOnlyChangedEventHandler">
+            <summary>
+            Делегат события о изменении состояния ТОЛЬКО ДЛЯ ЧТЕНИЯ.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="isNowReadOnly">Флаг ТОЛЬКО ДЛЯ ЧТЕНИЯ в текущий момент.</param>
+        </member>
+        <member name="T:NsgSoft.Design.INsgUpdatable">
+            <summary>
+            Интефейс обновляемого объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgUpdatable.UpdateDataAsync(System.Object)">
+            <summary>
+            Метод асинхронного обновления данных.
+            </summary>
+            <param name="sender">Источник события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.INsgUpdatable.UpdateDataSync(System.Object)">
+            <summary>
+            Метод синхронного обновления данных.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <returns>Возвращает true, если было обновление, иначе false.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.INsgObjectExplorerForm">
+            <summary>
+            Интерфейс шаблона формы редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgObjectExplorerForm.ListItemsType">
+            <summary>
+            Получение и установка типа элементов в списке.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgObjectExplorerForm.ListViewControl">
+            <summary>
+            Получение контрола - список объектов.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgObjectExplorerForm.NameControl">
+            <summary>
+            Получение контрола формы - NameControl.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgObjectExplorerForm.SelectedObject">
+            <summary>
+            Получение выбранного объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgObjectExplorerForm.ShowDialog">
+            <summary>
+            Метод вывода формы на экран в модальном режиме.
+            </summary>
+            <returns>Возвращает результат редактирования.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.INsgObjectExplorerForm.Dispose">
+            <summary>
+            Метод освобождения формы.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.ValueChangedInitEventHandler">
+            <summary>
+            Делегат изменения значения в колонке.
+            </summary>
+            <param name="sender">Источник.</param>
+            <param name="init">Флаг инициализации.</param>
+        </member>
+        <member name="T:NsgSoft.Design.INsgValueComponent">
+            <summary>
+            Интерфейс компонента со значением.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgValueComponent.Value">
+            <summary>
+            Получение значения компонента.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgValueComponent.ParentComponent">
+            <summary>
+            Родительский компонент.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.INsgValueComponent.ValueChanged">
+            <summary>
+            Событие об изменении значения.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgBaseTypeProvider.GetNsgType">
+            <summary>
+            Метод получения базового NSG-типа.
+            </summary>
+            <returns>Базовый NSG-тип.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.INsgDataObjectDescriptor">
+            <summary>
+            Интерфейс шаблона объекта данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgDataObjectDescriptor.Name">
+            <summary>
+            Получение имени объекта.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgDataObjectDescriptor.DataType">
+            <summary>
+            Получение типа данных объекта.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgDataObjectDescriptor.NSGType">
+            <summary>
+            Получение NSG типа свойства.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.INsgLongOperation">
+            <summary>
+            Должен реализовываться объектами, предполагающими выполнение длительных операций
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgLongOperation.ID">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgLongOperation.OperationDescription">
+            <summary>
+            Описание операции.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.INsgLongOperation.BeginOperation">
+            <summary>
+            Событие о начале операции.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.INsgLongOperation.EndOperation">
+            <summary>
+            Событие об окончании операции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgLongOperation.CancelOperation(System.Object)">
+            <summary>
+            Метод отмены операции.
+            </summary>
+            <param name="sender">Источник.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgSimpleLongOperation">
+            <summary>
+            Класс простой длительной операции
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgSimpleLongOperation.ID">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgSimpleLongOperation.OperationDescription">
+            <summary>
+            Описание операции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgSimpleLongOperation.Start">
+            <summary>
+            Выполнить
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgSimpleLongOperation.Stop">
+            <summary>
+            Остановить
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgSimpleLongOperation.CancelOperation">
+            <summary>
+            Событие об отмене операции
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgSimpleLongOperation.NsgSoft#Design#INsgLongOperation#CancelOperation(System.Object)">
+            <summary>
+            Метод отмены операции.
+            </summary>
+            <param name="sender">Источник.</param>
+        </member>
+        <member name="M:NsgSoft.Design.INsgLongOperationStarter.RunEvent(System.ComponentModel.DoWorkEventHandler,System.ComponentModel.RunWorkerCompletedEventHandler,System.Object)">
+            <summary>
+            Вызов асинхронного метода с передачей объекта, который будет передан в методы DoWork и WorkCompleated вместо объекта потока
+            </summary>
+            <param name="DoWork">фукнция для асинхронного вызова</param>
+            <param name="WorkCompleted">функция для синхронного вызова после выполнения асинхроонго метода</param>
+            <param name="evenrGeneratorObject">Объект - источник события</param>
+        </member>
+        <member name="T:NsgSoft.Design.INsgObjectContainer">
+            <summary>
+            Интерфейс контейнера объектов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgObjectContainer.Contains(System.String)">
+            <summary>
+            Метод проверки наличия вложенного объекта с заданным именем.
+            </summary>
+            <param name="name">Имя для проверки.</param>
+            <returns>Возвращает true при наличии объекта и false в противном случае.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.INsgSettingsToXml">
+            <summary>
+            Интерфейс сохранения и чтения настроек в Xml.
+            Должен реализовываться всеми визуальными объектами, допускающими пользовательские настройки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.INsgSettingsToXml.SettingsToXml(System.Xml.XmlElement)">
+            <summary>
+            Сохранить все текущий пользовательские настройки в Xml
+            </summary>
+            <param name="root"></param>
+        </member>
+        <member name="M:NsgSoft.Design.INsgSettingsToXml.SettingsFromXml(System.Xml.XmlElement)">
+            <summary>
+            Прочитать из Xml и применить настройки компонента
+            </summary>
+            <param name="root"></param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgCancelForm.CancelButtonPress">
+            <summary>
+            Событие о нажатии кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.OnCancelButtonPress">
+            <summary>
+            Метод вызова события о нажатии кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgCancelForm.ContinueButtonPress">
+            <summary>
+            Событие о нажатии кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.OnContinueButtonPress">
+            <summary>
+            Метод вызова события о нажатии кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.DrawRoundRect(System.Drawing.Graphics,System.Drawing.Pen,System.Drawing.Rectangle)">
+            <summary>
+            Метод рисования закругленного прямоугольника.
+            </summary>
+            <param name="graphics">Графика.</param>
+            <param name="pen">Кисть.</param>
+            <param name="rect">Прямоугольник.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.FillRoundRect(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.Rectangle)">
+            <summary>
+            Метод заливки закругленного прямоугольника.
+            </summary>
+            <param name="graphics">Графика.</param>
+            <param name="brush">Кисть.</param>
+            <param name="rect">Прямоугольник.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.FillRoundRect(System.Drawing.Graphics,System.Drawing.Brush,System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Метод заливки закругленного прямоугольника.
+            </summary>
+            <param name="graphics">Графика.</param>
+            <param name="brush">Кисть.</param>
+            <param name="gp">Путь по точкам.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.createRoundRectanglePath(System.Drawing.Rectangle)">
+            <summary>
+            Метод получения пути из точек для прямоугольника.
+            </summary>
+            <param name="rect">Прямоугольник.</param>
+            <returns>Возвращает путь.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.nsgButtonRun_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки ПРОДОЛЖИТЬ.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.nsgButtonCancel_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки ОТМЕНА.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgCancelForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCancelForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgInheritanceModifiersConverter">
+            <summary>
+            Класс конвертер модификаторов доступа для наследуемых объектов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritanceModifiersConverter.#ctor(System.Type)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="type">Тип Enum.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgInheritanceModifiersConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод получения стандартных значений.
+            </summary>
+            <param name="context">Контекст.</param>
+            <returns>Возвращает список стандартных значений.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgModifiersConverter">
+            <summary>
+            Класс конвертер модификаторов доступа.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgModifiersConverter.INTERNAL">
+            <summary>
+            Модификатор доступа Internal.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgModifiersConverter.PRIVATE">
+            <summary>
+            Модификатор доступа Private.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgModifiersConverter.PUBLIC">
+            <summary>
+            Модификатор доступа Public.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgModifiersConverter.PROTECTED_INTERNAL">
+            <summary>
+            Модификатор доступа Protected Internal.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgModifiersConverter.PROTECTED">
+            <summary>
+            Модификатор доступа Protected.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgModifiersConverter.#ctor(System.Type)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="type">Тип Enum.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgModifiersConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод конвертации значения к заданному типу.
+            </summary>
+            <param name="context">Контекст.</param>
+            <param name="culture">Языковая культура.</param>
+            <param name="value">Значение.</param>
+            <param name="destinationType">Тип, к которому происходит приведение.</param>
+            <returns>Возвращает приведенный объект.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgModifiersConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Метод конвертации объекта к типу значения. 
+            </summary>
+            <param name="context">Контекст.</param>
+            <param name="culture">Языковая культура.</param>
+            <param name="value">Значение.</param>
+            <returns>Возвращает значение.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgModifiersConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод получения стандартных значений.
+            </summary>
+            <param name="context">Контекст.</param>
+            <returns>Возвращает список стандартных значений.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgLogoControl">
+            <summary>
+            Контрол NSG Logo.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLogoControl.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgLogoControl.Color1">
+            <summary>
+            Цвет заливки 1.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgLogoControl.Color2">
+            <summary>
+            Цвет заливки 2.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgLogoControl.GradientMode">
+            <summary>
+            Метод заливки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgLogoControl.Text">
+            <summary>
+            Текст контрола.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgLogoControl.Font">
+            <summary>
+            Шрифт контрола.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLogoControl.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки контрола.
+            </summary>
+            <param name="pe">Параметры графики.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLogoControl.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Вызывается при изменении размеров контрола.
+            </summary>
+            <param name="e">Аргументы.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLogoControl.updateFont">
+            <summary>
+            Метод обновления шрифта.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgLogoControl.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLogoControl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgLogoControl.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgProgressBar">
+            <summary>
+            Класс контрола отображения прогресса.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgProgressBar.#ctor">
+            <summary>
+            Конструктор класса.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgProgressBar.ReportProgress(System.Int32,System.String)">
+            <summary>
+            Метод установки текущего прогресса в контроле.
+            </summary>
+            <param name="procentage">Процент исполнения (от 0 до 100).</param>
+            <param name="text">Описание текущего действия.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgProgressBar.provider_ProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Обработка завершения прогресса в провайдере.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgProgressBar.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgProgressBar.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgProgressBar.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgBaseLogoForm">
+            <summary>
+            Класс формы логотипа.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBaseLogoForm.ImageFiles">
+            <summary>
+            Список файлов картинки для ЛОГО.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBaseLogoForm.LogoTextFormat">
+            <summary>
+            Формат строки основного текста.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBaseLogoForm.CommentTextFormat">
+            <summary>
+            формат строки текста коммента.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBaseLogoForm.IsInitialized">
+            <summary>
+            Флаг инициализации.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBaseLogoForm.ProgressMessage">
+            <summary>
+            Текст сообщения о прогрессе.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Design.NsgBaseLogoForm.FormFullShown">
+            <summary>
+            Событие о полном отображении формы.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.OnFormFullShown">
+            <summary>
+            Метод вызова события о полном отображении формы.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.BackgroundImage">
+            <summary>
+            Фоновая картинка.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.BackColor">
+            <summary>
+            Цвет фона.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.Image">
+            <summary>
+            Фоновая картинка.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.MinimumSize">
+            <summary>
+            Минимальный размер формы.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.MaximumSize">
+            <summary>
+            Маскимальный размер формы.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.Radius">
+            <summary>
+            Получение и установка радиуса закругления.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.BorderWidth">
+            <summary>
+            Получение и установка толщины кромки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.BorderColor">
+            <summary>
+            Цвет кромкм формы.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.DrawBorder">
+            <summary>
+            Флаг отрисовки кромки формы.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.Text">
+            <summary>
+            Основной текст логотипа.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.Font">
+            <summary>
+            Шрифт формы.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.CommentFont">
+            <summary>
+            Шрифт комментария.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgBaseLogoForm.CommentText">
+            <summary>
+            Текст комментария.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.ReportProgress(System.String)">
+            <summary>
+            Метод вывода прогресса на форме.
+            </summary>
+            <param name="data">Строка прогресса.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.LoadImage">
+            <summary>
+            Метод загрузки картинки фона.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.CalculateFontSize">
+            <summary>
+            Метод пересчета размера шрифта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.InitializeRegion">
+            <summary>
+            Метод инициализации региона формы.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.CreateRoundRectanglePath(System.Drawing.Rectangle,System.Single)">
+            <summary>
+            Метод получения пути из точек для прямоугольника.
+            </summary>
+            <param name="rect">Прямоугольник.</param>
+            <param name="radius">Радиус закругления.</param>
+            <returns>Возвращает путь.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.DrawControl(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки контрола.
+            </summary>
+            <param name="e">Аргументы отрисовки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.DrawText(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки текста контрола.
+            </summary>
+            <param name="e">Аргументы отрисовки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.CheckLocation">
+            <summary>
+            Метод проверки правильности расположения окна.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Метод вызывается по изменению размеров формы.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.OnLoad(System.EventArgs)">
+            <summary>
+            Вызывается при загрузке формы.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.OnShown(System.EventArgs)">
+            <summary>
+            Вызывается при первом отображении.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод вызывается при прорисовке фона.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.OnProgressChanged(System.String)">
+            <summary>
+            Метод вызывается при изменении прогресса на форме.
+             Вызывается на потоке формы.
+            </summary>
+            <param name="data">Строка прогресса.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.reinitForm">
+            <summary>
+            Метод переинициализации формы.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgBaseLogoForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgBaseLogoForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgCheckNameEventHandler">
+            <summary>
+            Делегат события о проверке введенного имени.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgCheckNameEventArgs">
+            <summary>
+            Класс аргументов события о проверке введенного имени.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgCheckNameEventArgs.#ctor(System.String)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="name">Имя для проверки.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgCheckNameEventArgs.IsValid">
+            <summary>
+            Получение и задание флага корректности имени.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgCheckNameEventArgs.Name">
+            <summary>
+            Получение имени.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgHorizotalResizeDesigner">
+            <summary>
+            Класс дизайнера контрола с разрешением изменения размера только по горизонтали.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgHorizotalResizeDesigner.SelectionRules">
+            <summary>
+            Задание правил изменения размеров контрола.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.INsgConfigurationProvider">
+            <summary>
+            Интерфейс провайдера данных конфигурации.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgConfigurationProvider.ConfigurationAssembly">
+            <summary>
+            Получение пользовательской сборке с данными конфигурацией.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.INsgMetaObjectDescriptor">
+            <summary>
+            Интерфейс шаблона объекта метаданных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgMetaObjectDescriptor.ConfigurationName">
+            <summary>
+            Получение имени конфигурации.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgMetaObjectDescriptor.MetaDataName">
+            <summary>
+            Получение имени метаданных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgMetaObjectDescriptor.FullName">
+            <summary>
+            Получение полного имени объекта.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.INsgSourceObjectProvider">
+            <summary>
+            Интерфейс провайдера объекта источника данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.INsgSourceObjectProvider.SourceObject">
+            <summary>
+            Получение и установка объекта - источника данных.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgAcceptNameEventHandler">
+            <summary>
+            Делегат события о подтверждении ввода имени.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgAcceptNameEventArgs">
+            <summary>
+            Класс аргументов события о подтверждении ввода имени.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgAcceptNameEventArgs.#ctor(System.String)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="name">Имя для проверки.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgAcceptNameEventArgs.Message">
+            <summary>
+            Получение и задание сообщения об ошибке в имени.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgAcceptNameEventArgs.Name">
+            <summary>
+            Получение имени.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgComponentConverter">
+            <summary>
+            Класс конвертер для свойства MasterComponent.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод конвертации объекта к строке.
+            </summary>
+            <returns>Возвращает строковое представление объекта.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgComponentEditor`1">
+            <summary>
+            Класс редактор свойств объекта - источника для отчета.
+            </summary>
+            <typeparam name="Template">Шаблон выбираемых компонентов.</typeparam>
+        </member>
+        <member name="F:NsgSoft.Design.NsgComponentEditor`1.editable">
+            <summary>
+            Редактируемый компонент.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentEditor`1.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Метод редактирования объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentEditor`1.CheckComponentForAdding(System.Object,System.ComponentModel.IComponent)">
+            <summary>
+            Метод проверки компонентов на возможность привязки.
+            </summary>
+            <param name="sender">Инициатор проверки.</param>
+            <param name="component">Компонент на проверку.</param>
+            <returns>Возвращает true, если компонент доступен для привязки,
+             иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentEditor`1.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод получения стиля окна редактора.
+            </summary>
+            <param name="context">Контекст дизайнера.</param>
+            <returns>Возвращает стиль.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentEditor`1.GetPaintValueSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Метод получения разрешения режима дополнительной прорисовки.
+            </summary>
+            <param name="context">Контекст.</param>
+            <returns>Возвращает true, если разрешено; иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgComponentEditor`1.PaintValue(System.Drawing.Design.PaintValueEventArgs)">
+            <summary>
+            Метод дополнительной прорисовки.
+            </summary>
+            <param name="e">Параметры прорисовки.</param>
+        </member>
+        <member name="T:NsgSoft.Design.NsgDataDescriptor">
+            <summary>
+            Класс - шаблон для хранения типа данных.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDataDescriptor.#ctor(System.String,System.Type,System.Type)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="name">Имя.</param>
+            <param name="dataType">Тип данных.</param>
+            <param name="nsgType">Тип сопоставленного NSG простого объекта.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDataDescriptor.Name">
+            <summary>
+            Получение и установка имени свойства.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDataDescriptor.DataType">
+            <summary>
+            Получение и установка типа данных свойства.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDataDescriptor.NSGType">
+            <summary>
+            Получение и установка NSG типа свойства.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDataDescriptor.GetNsgType">
+            <summary>
+            Метод получения базового NSG-типа.
+            </summary>
+            <returns>Базовый NSG-тип.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgDesignHost">
+            <summary>
+            Класс управления процессом Design-Time
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.#ctor(System.IServiceProvider)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="servProvider">Объект, реализующий интерфейс получения сервисов.</param>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDesignHost.ServiceProvider">
+            <summary>
+            Провайдер сервисов.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDesignHost.DesignerService">
+            <summary>
+            Получение сервиса дизайнера компонентов.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDesignHost.SourceObjectProvider">
+            <summary>
+            Получение провайдера источника данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgDesignHost.ConfigurationProvider">
+            <summary>
+            Получение провайдера метаданных.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetSourceObjectType">
+            <summary>
+            Метод получения типа источника данных.
+            </summary>
+            <returns>Возвращает тип источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetSourceObjectProperty(System.String)">
+            <summary>
+            Метод получения свойство источника данных.
+            </summary>
+            <param name="propertyName">Имя свойства источника данных.</param>
+            <returns>Возвращает свойство источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetSourceObjectPropertyType(System.String)">
+            <summary>
+            Метод получения типа свойства источника данных.
+            </summary>
+            <param name="propertyName">Имя свойства источника данных.</param>
+            <returns>Возвращает тип свойства источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetSourceObjectProperties(System.Boolean)">
+            <summary>
+            Метод получения описателей свойств источника данных, помеченных атрибутом NsgViewAttribute.
+            </summary>
+            <param name="inheritance">С наследованием.</param>
+            <returns>Возвращает массив описателей свойств источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetSourceObjectDesignProperties(System.Boolean)">
+            <summary>
+            Метод получения описателей свойств источника данных, помеченных атрибутом NsgViewAttribute = DesignTime.
+            </summary>
+            <param name="inheritance">С наследованием.</param>
+            <returns>Возвращает массив описателей свойств источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GenerateComponentUniqueName(System.ComponentModel.IContainer,System.IServiceProvider,System.String,System.String)">
+            <summary>
+            Метод генерирует уникальное имя для компонента в пределах заданного контейнера и формы.
+            </summary>
+            <param name="container">Контейнер для компонента. Если не задан - не проверяются 
+             компоненты формы.</param>
+            <param name="servProvider">Провайдер сервисов. Если не задан - не проверяются 
+             переменные класса.</param>
+            <param name="initName">Начальное имя.</param>
+            <returns>Уникальное имя компонента.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.SearchOnCriteria(System.Reflection.MemberInfo,System.Object)">
+            <summary>
+            Метод поиска в типе по критерию.
+            </summary>
+            <param name="objMemberInfo">Описатель члена класса.</param>
+            <param name="objSearch">Критерий поиска.</param>
+            <returns>Булевый результат.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.IsComponentNameExist(System.ComponentModel.IContainer,System.String)">
+            <summary>
+            Метод проверки существования имени компонента в пределах заданного контейнера.
+            </summary>
+            <param name="container">Контейнер для компонента.</param>
+            <param name="initName">Начальное имя.</param>
+            <returns>Возвращает true, если имя существует в контейнере, иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.ClearAttributesCash">
+            <summary>
+            Метод очистки кэша атрибутов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetAttribute(System.Reflection.MemberInfo,System.Type)">
+            <summary>
+            Метод получения атрибута для описателя.
+            </summary>
+            <param name="memberInfo">Описатель.</param>
+            <param name="attributeType">Тип атрибута.</param>
+            <returns>Возвращает атрибут, если найден, иначе null.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetAttribute(System.Reflection.Assembly,System.Type)">
+            <summary>
+            Метод получения атрибута для описателя.
+            </summary>
+            <param name="assembly">Сборка.</param>
+            <param name="attributeType">Тип атрибута.</param>
+            <returns>Возвращает атрибут, если найден, иначе null.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Метод получения атрибута для описателя.
+            </summary>
+            <param name="memberInfo">Описатель.</param>
+            <typeparam name="Template">Тип атрибута.</typeparam>
+            <returns>Возвращает атрибут, если найден, иначе null.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetAttribute``1(System.Reflection.Assembly)">
+            <summary>
+            Метод получения атрибута для описателя.
+            </summary>
+            <param name="assembly">Сборка.</param>
+            <typeparam name="Template">Тип атрибута.</typeparam>
+            <returns>Возвращает атрибут, если найден, иначе null.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.IsAttributeDefined(System.Reflection.MemberInfo,System.Type)">
+            <summary>
+            Метод проверки наличия атрибута у свойства.
+            </summary>
+            <param name="memberInfo">Описатель.</param>
+            <param name="attributeType">Тип атрибута на проверку.</param>
+            <returns>Возвращает true при наличии, иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.IsAttributeDefined``1(System.Reflection.MemberInfo)">
+            <summary>
+            Метод проверки наличия атрибута у свойства.
+            </summary>
+            <param name="memberInfo">Описатель.</param>
+            <returns>Возвращает true при наличии, иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.IsAttributeDefined(System.Reflection.Assembly,System.Type)">
+            <summary>
+            Метод проверки наличия атрибута у свойства.
+            </summary>
+            <param name="assembly">Сборка.</param>
+            <param name="attributeType">Тип атрибута на проверку.</param>
+            <returns>Возвращает true при наличии, иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.IsAttributeDefined``1(System.Reflection.Assembly)">
+            <summary>
+            Метод проверки наличия атрибута у свойства.
+            </summary>
+            <param name="assembly">Сборка.</param>
+            <returns>Возвращает true при наличии, иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetProperties(System.Type,System.Boolean)">
+            <summary>
+            Метод получения списка описателей всех свойств для указанного типа.
+            </summary>
+            <param name="type">Тип.</param>
+            <param name="inheritance">Флаг наследования.</param>
+            <returns>Возвращает список описателей.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetObjectProperties(System.Type,System.Boolean)">
+            <summary>
+            Метод получения описателей свойств заданного типа, помеченных атрибутом NsgViewAttribute.
+            </summary>
+            <param name="type">Тип данных объекта.</param>
+            <param name="inheritance">С наследованием.</param>
+            <returns>Возвращает массив описателей свойств источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetObjectDesignProperties(System.Type,System.Boolean)">
+            <summary>
+            Метод получения описателей свойств заданного типа, помеченных атрибутом NsgViewAttribute = DesignTime.
+            </summary>
+            <param name="type">Тип данных объекта.</param>
+            <param name="inheritance">С наследованием.</param>
+            <returns>Возвращает массив описателей свойств источника данных.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.getKeyOfMemberInfo(System.Reflection.MemberInfo)">
+            <summary>
+            Метод получения ключа для описателя.
+            </summary>
+            <param name="info">Описатель.</param>
+            <returns>Возвращает ключ.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgDesignHost.GetEditorType(System.Type)">
+            <summary>
+            Метод получения типа редактора для определнного типа данных.
+            </summary>
+            <param name="propType">тип данных для редактирования.</param>
+            <returns>Возвращает тип редактора.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.NsgObjectExplorerForm">
+            <summary>
+            Форма редактора объектов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.#ctor">
+            <summary>
+            Конструктор формы.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.ListItemsType">
+            <summary>
+            Получение и установка типа элементов в списке. Влияется на получение результирующего объекта.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.ListViewControl">
+            <summary>
+            Получение контрола формы - ListView.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.ToolStripControl">
+            <summary>
+            Получение контрола формы - ToolStrip.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.ButtonOkControl">
+            <summary>
+            Получение контрола формы - ButtonOk.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.ButtonCancelControl">
+            <summary>
+            Получение контрола формы - ButtonCancel.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.NameControl">
+            <summary>
+            Получение контрола формы - NameControl.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgObjectExplorerForm.SelectedObject">
+            <summary>
+            Получение выбранного объекта.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.FillTextFromResources(System.String,System.String,System.String)">
+            <summary>
+            Метод текстового заполнения формы из строковых ресурсов.
+            </summary>
+            <param name="resCaption">Имя ресурса заголовка формы.</param>
+            <param name="resOkButton">Имя ресурса текста кнопки ОК.</param>
+            <param name="resCancelButton">Имя ресурса текста кнопки ОТМЕНА.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.FillTextFromResources(System.String,System.String,System.String,System.String)">
+            <summary>
+            Метод текстового заполнения формы из строковых ресурсов.
+            </summary>
+            <param name="resCaption">Имя ресурса заголовка формы.</param>
+            <param name="resOkButton">Имя ресурса текста кнопки ОК.</param>
+            <param name="resCancelButton">Имя ресурса текста кнопки ОТМЕНА.</param>
+            <param name="resNameEditorCaption">Имя ресурса заголовка текста ИМЕНИ.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.okButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события нажатие на кнопку ОК.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.cancelButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события нажатие на кнопку ОТМЕНА.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.objectsList_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик события изменения выделения в списке.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.NsgObjectExplorerForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            Обработчик события закрытие формы.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.objectsList_MouseDoubleClick(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Обработчик события двойной клик мыши.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.NsgObjectExplorerForm_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            Обработчик события нажатие с клавиатуры.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Аргументы события.</param>
+        </member>
+        <member name="F:NsgSoft.Design.NsgObjectExplorerForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgObjectExplorerForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgEditFormNames">
+            <summary>
+            Имена форм для редактирования объекта
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgEditFormNames.IsDictionary">
+            <summary>
+            Флаг, показыващий возможно ли использование групп
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgEditFormNames.UseElementForm">
+            <summary>
+            Флаг, показыващий редактировать элемент в окне или в элементе
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgEditFormNames.UseGroupForm">
+            <summary>
+            Флаг, показыващий редактировать группу в окне или в элементе
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgCreateAndEditFormNames.IsDictionary">
+            <summary>
+            Флаг, показыващий возможно ли использование групп
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgListItemsType">
+            <summary>
+            Перечисление типов элементов списка.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgListItemsType.Properties">
+            <summary>
+            Свойства объекта.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgListItemsType.Types">
+            <summary>
+            Типы данных.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgStandartTypeLocalizeConverter">
+            <summary>
+            Класс конвертер для внутренних типов с локализацией свойств.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgStandartTypeLocalizeConverter.GetProperties(System.ComponentModel.ITypeDescriptorContext,System.Object,System.Attribute[])">
+            <summary>
+            Метод получения свойств типа.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgStandartTypeLocalizeConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            Метод проверки на возможность конвертации к указанному типу.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgStandartTypeLocalizeConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            Метод конвертации к указанному типу.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgStandartTypeLocalizeConverter.GetPropertiesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Разрешает получение свойств через метод GetProperties.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgHidingPanel">
+            <summary>
+            Класс скрывающейся панели.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgHidingPanel.HideButtonDocking">
+            <summary>
+            Перечисление расположения кнопки скрытия.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgHidingPanel.HideButtonDocking.Left">
+            <summary>
+            Слева.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgHidingPanel.HideButtonDocking.Right">
+            <summary>
+            Справа.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgHidingPanel.HideButtonDocking.Top">
+            <summary>
+            Сверху.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgHidingPanel.curButtonState">
+            <summary>
+            Текущее состояние кнопки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgHidingPanel.isHidden">
+            <summary>
+            Флаг сокрытия.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgHidingPanel.#ctor">
+            <summary>
+            Конструктор панели.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgHidingPanel.ButtonSize">
+            <summary>
+            Получение и установка размера кнопки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgHidingPanel.HideDirection">
+            <summary>
+            Получение и устано
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgHidingPanel.IsHidden">
+            <summary>
+            Получение флага сокрытия.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgHidingPanel.ShowPanel">
+            <summary>
+            Метод открытия панели.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgHidingPanel.HidePanel">
+            <summary>
+            Метод закрытия панели.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgHidingPanel.nsgButtonCtrl_Click(System.Object,System.EventArgs)">
+            <summary>
+            Метод обработки события от нажатия кнопки на панели.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="F:NsgSoft.Design.NsgHidingPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgHidingPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgHidingPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgPanel">
+            <summary>
+            Класс контрола панели.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgPanel.borderPen">
+            <summary>
+            Зарисовка границы контрола.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgPanel.bodyBrush">
+            <summary>
+            Зарисовка границы контрола.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Design.NsgPanel.buttonSize">
+            <summary>
+            Размер кнопки
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.#ctor">
+            <summary>
+            Конструктор панели.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgPanel.ButtonText">
+            <summary>
+            Получение и установка текста кнопки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.NsgPanel.ButtonSize">
+            <summary>
+            Получение и установка размера кнопки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Метод отрисовки панели.
+            </summary>
+            <param name="pe">Параметры отрисовки.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.reorderControls">
+            <summary>
+            Метод перегруппировки контролов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.OnControlAdded(System.Windows.Forms.ControlEventArgs)">
+            <summary>
+            Метод вызывается по добавлению контрола в список.
+            </summary>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.OnControlRemoved(System.Windows.Forms.ControlEventArgs)">
+            <summary>
+            Метод вызывается по удалению контрола из списка.
+            </summary>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="F:NsgSoft.Design.NsgPanel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Design.NsgPanel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Design.NsgTypeLocalizer">
+            <summary>
+            Класс для конвертации типа любых встроенных объектов. Проводит локализацию всех свойств для дизайнера.
+            </summary>
+            <remarks>Тип для конвертации должен реализовывать интерфейс INsgBaseTypeProvider.</remarks>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTypeLocalizer.GetProperties(System.ComponentModel.PropertyDescriptorCollection,System.Object)">
+            <summary>
+            Метод получения коллекции локализованных свойств объекта.
+            </summary>
+            <param name="colls">Список базовых свойств.</param>
+            <param name="value">Значение объекта.</param>
+            <returns>Возвращает коллекцию локализованных свойств.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTypeLocalizer.GetProperties(System.Object)">
+            <summary>
+            Метод получения коллекции локализованных свойств объекта.
+            </summary>
+            <param name="value">Значение объекта.</param>
+            <returns>Возвращает коллекцию локализованных свойств.</returns>
+        </member>
+        <member name="M:NsgSoft.Design.NsgTypeLocalizer.getCustomAttribute(System.Object,System.Type)">
+            <summary>
+            Метод получения атрибута.
+            </summary>
+            <param name="value">Объект, от которого получается атрибут.</param>
+            <param name="attributeType">Тип получаемого атрибута.</param>
+            <returns>Возвращает найденный атрибут или null.</returns>
+        </member>
+        <member name="T:NsgSoft.Design.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Design.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
