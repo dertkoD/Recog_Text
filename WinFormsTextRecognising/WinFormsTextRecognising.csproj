@@ -40,9 +40,6 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="NsgSoft.Design">
-      <HintPath>..\..\..\..\..\..\NSG\svn\Customers\Titan\Releases\NsgSoft.Design.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -100,6 +97,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPicturesTrue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPicturesTrue.Designer.cs">
+      <DependentUpon>FormPicturesTrue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Language.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="Page.cs" />
@@ -113,6 +116,9 @@
     <Compile Include="Word.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPicturesTrue.resx">
+      <DependentUpon>FormPicturesTrue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

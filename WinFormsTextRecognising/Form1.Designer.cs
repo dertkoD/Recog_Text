@@ -37,23 +37,23 @@ namespace WinFormsTextRecognising
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnQuality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNetWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPieces = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPlant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnLot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnBestBefore = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnElaborationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.QualityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SizeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NetWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlantColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BestBeforeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElaborationDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PiecesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LotColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -90,7 +90,7 @@ namespace WinFormsTextRecognising
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 202);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 124);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(272, 159);
             this.richTextBox1.TabIndex = 8;
@@ -108,59 +108,19 @@ namespace WinFormsTextRecognising
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnQuality,
-            this.ColumnSize,
-            this.ColumnNetWeight,
-            this.ColumnPieces,
-            this.ColumnPlant,
-            this.ColumnLot,
-            this.ColumnBestBefore,
-            this.ColumnElaborationDate});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 125);
+            this.QualityColumn,
+            this.SizeColumn,
+            this.NetWeightColumn,
+            this.PlantColumn,
+            this.BestBeforeColumn,
+            this.ElaborationDateColumn,
+            this.PiecesColumn,
+            this.LotColumn});
+            this.dataGridView1.Location = new System.Drawing.Point(12, 302);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(843, 61);
+            this.dataGridView1.Size = new System.Drawing.Size(843, 198);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
-            // 
-            // ColumnQuality
-            // 
-            this.ColumnQuality.HeaderText = "Quality";
-            this.ColumnQuality.Name = "ColumnQuality";
-            // 
-            // ColumnSize
-            // 
-            this.ColumnSize.HeaderText = "Size";
-            this.ColumnSize.Name = "ColumnSize";
-            // 
-            // ColumnNetWeight
-            // 
-            this.ColumnNetWeight.HeaderText = "NetWeight";
-            this.ColumnNetWeight.Name = "ColumnNetWeight";
-            // 
-            // ColumnPieces
-            // 
-            this.ColumnPieces.HeaderText = "Pieces";
-            this.ColumnPieces.Name = "ColumnPieces";
-            // 
-            // ColumnPlant
-            // 
-            this.ColumnPlant.HeaderText = "Plant";
-            this.ColumnPlant.Name = "ColumnPlant";
-            // 
-            // ColumnLot
-            // 
-            this.ColumnLot.HeaderText = "Lot";
-            this.ColumnLot.Name = "ColumnLot";
-            // 
-            // ColumnBestBefore
-            // 
-            this.ColumnBestBefore.HeaderText = "BestBefore";
-            this.ColumnBestBefore.Name = "ColumnBestBefore";
-            // 
-            // ColumnElaborationDate
-            // 
-            this.ColumnElaborationDate.HeaderText = "ElaborationDate";
-            this.ColumnElaborationDate.Name = "ColumnElaborationDate";
             // 
             // pictureBox1
             // 
@@ -172,63 +132,113 @@ namespace WinFormsTextRecognising
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
-            // checkBox1
+            // button5
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 89);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 17);
-            this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Идеальное фото";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button5.Location = new System.Drawing.Point(304, 184);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(124, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Очистить таблицу";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox1
+            // button6
             // 
-            this.textBox1.Location = new System.Drawing.Point(309, 202);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(272, 159);
-            this.textBox1.TabIndex = 14;
+            this.button6.Location = new System.Drawing.Point(304, 132);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 23);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "Загрузить фото";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // pictureBox2
+            // label2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(12, 367);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(569, 390);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(561, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 23;
             // 
-            // checkBox2
+            // label3
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(128, 89);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(210, 17);
-            this.checkBox2.TabIndex = 16;
-            this.checkBox2.Text = "Редактировать идеальную картинку";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(620, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.TabIndex = 24;
             // 
-            // button3
+            // button7
             // 
-            this.button3.Location = new System.Drawing.Point(344, 83);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Выровнять";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button7.Location = new System.Drawing.Point(467, 124);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(134, 39);
+            this.button7.TabIndex = 25;
+            this.button7.Text = "Сохранить настройки";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(467, 176);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(134, 39);
+            this.button8.TabIndex = 26;
+            this.button8.Text = "Загрузить настройки";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // QualityColumn
+            // 
+            this.QualityColumn.HeaderText = "Quality";
+            this.QualityColumn.Name = "QualityColumn";
+            // 
+            // SizeColumn
+            // 
+            this.SizeColumn.HeaderText = "Size";
+            this.SizeColumn.Name = "SizeColumn";
+            // 
+            // NetWeightColumn
+            // 
+            this.NetWeightColumn.HeaderText = "NetWeight";
+            this.NetWeightColumn.Name = "NetWeightColumn";
+            // 
+            // PlantColumn
+            // 
+            this.PlantColumn.HeaderText = "Plant";
+            this.PlantColumn.Name = "PlantColumn";
+            // 
+            // BestBeforeColumn
+            // 
+            this.BestBeforeColumn.HeaderText = "BestBefore";
+            this.BestBeforeColumn.Name = "BestBeforeColumn";
+            // 
+            // ElaborationDateColumn
+            // 
+            this.ElaborationDateColumn.HeaderText = "ElaborationDate";
+            this.ElaborationDateColumn.Name = "ElaborationDateColumn";
+            // 
+            // PiecesColumn
+            // 
+            this.PiecesColumn.HeaderText = "Pieces";
+            this.PiecesColumn.Name = "PiecesColumn";
+            // 
+            // LotColumn
+            // 
+            this.LotColumn.HeaderText = "Lot";
+            this.LotColumn.Name = "LotColumn";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1712, 769);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(1712, 983);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -241,7 +251,6 @@ namespace WinFormsTextRecognising
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,20 +265,21 @@ namespace WinFormsTextRecognising
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnQuality;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSize;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNetWeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPieces;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPlant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBestBefore;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnElaborationDate;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QualityColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SizeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NetWeightColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlantColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BestBeforeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElaborationDateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PiecesColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LotColumn;
     }
 }
 
