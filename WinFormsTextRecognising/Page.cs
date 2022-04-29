@@ -7,5 +7,6 @@ namespace WinFormsTextRecognising
         public string width { get; set; }
         public string height { get; set; }
         public List<Block> blocks { get; set; }
+        public List<Entity> entities { get; set; }
     }
 }

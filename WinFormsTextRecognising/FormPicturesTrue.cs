@@ -20,7 +20,7 @@ namespace WinFormsTextRecognising
         public List<RectangleW> ListHighlightedRectangles = new List<RectangleW>();
         public Dictionary<string, List<Point>> ArbitraryArea = new Dictionary<string, List<Point>>();
         public Dictionary<string, Point> MinPoints = new Dictionary<string,Point>();
-        int enterColumn = 0;
+        private string columnName = string.Empty;
         private Image image;
         private List<Image> listImages = new List<Image>();
         //private List<Point> Points = null;
@@ -103,7 +103,7 @@ namespace WinFormsTextRecognising
         //    return bm;
         //}
 
-        private Bitmap MakeImageWithAreaRectangle(Bitmap source_bm, Rectangle rectangle)
+        public Bitmap MakeImageWithAreaRectangle(Bitmap source_bm, Rectangle rectangle)
         {
             Bitmap bm = new Bitmap(source_bm.Width, source_bm.Height);
 
@@ -124,7 +124,7 @@ namespace WinFormsTextRecognising
         {
             //if (!checkBox1.Checked)
             //{
-            if (!string.IsNullOrEmpty(tbNeedWord.Text))
+            if (!string.IsNullOrEmpty(tbNeedWord.Text) || columnName.Contains("Net"))
             {
                 start = end = e.Location;
                 pictureBox1.Invalidate();
@@ -141,7 +141,7 @@ namespace WinFormsTextRecognising
         {
             //if (!checkBox1.Checked)
             //{
-            if (!string.IsNullOrEmpty(tbNeedWord.Text))
+            if (!string.IsNullOrEmpty(tbNeedWord.Text) || columnName.Contains("Net"))
             {
                 if (e.Button == MouseButtons.Left)
                 {
@@ -160,11 +160,9 @@ namespace WinFormsTextRecognising
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            var columnName = dataGridView1.Columns[enterColumn].Name;
-
             //if (!checkBox1.Checked)
             //{
-            if (!string.IsNullOrEmpty(tbNeedWord.Text))
+            if (!string.IsNullOrEmpty(tbNeedWord.Text) || columnName.Contains("Net"))
             {
                 if (start != end)
                 {
@@ -213,7 +211,11 @@ namespace WinFormsTextRecognising
                     pictureBox2.Image = AllPicure;
                     pictureBox2.Refresh();
 
-                    dataGridView1.Rows[0].Cells[columnName].Value = text;
+                    if (columnName.Contains("Net"))
+                        dataGridView1.Rows[0].Cells[columnName].Value = "+";
+                    else
+                        dataGridView1.Rows[0].Cells[columnName].Value = text;
+
                     tbNeedWord.Text = string.Empty;
                 }
             }   
@@ -359,7 +361,7 @@ namespace WinFormsTextRecognising
 
         private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            enterColumn = e.ColumnIndex;
+            columnName = dataGridView1.Columns[e.ColumnIndex].Name;
         }
     }
 }

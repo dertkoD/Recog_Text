@@ -1,62 +1,62 @@
 <?xml version="1.0"?>
 <ArrayOfRectangleW xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <RectangleW>
-    <Width>318</Width>
-    <Height>157</Height>
+    <Width>364</Width>
+    <Height>148</Height>
     <Text>premium</Text>
     <PositionFigure>
-      <X>26</X>
-      <Y>92</Y>
+      <X>17</X>
+      <Y>73</Y>
     </PositionFigure>
     <NameColumn>QualityColumn</NameColumn>
   </RectangleW>
   <RectangleW>
-    <Width>258</Width>
-    <Height>134</Height>
+    <Width>195</Width>
+    <Height>69</Height>
     <Text>4-5</Text>
     <PositionFigure>
-      <X>308</X>
-      <Y>108</Y>
+      <X>339</X>
+      <Y>118</Y>
     </PositionFigure>
     <NameColumn>SizeColumn</NameColumn>
   </RectangleW>
   <RectangleW>
-    <Width>236</Width>
-    <Height>124</Height>
+    <Width>162</Width>
+    <Height>85</Height>
     <Text>07-09-2021</Text>
     <PositionFigure>
-      <X>31</X>
-      <Y>173</Y>
+      <X>63</X>
+      <Y>166</Y>
     </PositionFigure>
     <NameColumn>ElaborationDateColumn</NameColumn>
   </RectangleW>
   <RectangleW>
-    <Width>274</Width>
-    <Height>97</Height>
+    <Width>162</Width>
+    <Height>71</Height>
     <Text>07-09-2023</Text>
     <PositionFigure>
-      <X>11</X>
-      <Y>255</Y>
+      <X>63</X>
+      <Y>244</Y>
     </PositionFigure>
     <NameColumn>BestBeforeColumn</NameColumn>
   </RectangleW>
   <RectangleW>
-    <Width>244</Width>
-    <Height>129</Height>
-    <Text>26,25</Text>
+    <Width>197</Width>
+    <Height>91</Height>
+    <Text>28,37</Text>
     <PositionFigure>
-      <X>419</X>
-      <Y>240</Y>
+      <X>455</X>
+      <Y>239</Y>
     </PositionFigure>
     <NameColumn>NetWeightColumn</NameColumn>
   </RectangleW>
   <RectangleW>
-    <Width>161</Width>
-    <Height>93</Height>
+    <Width>110</Width>
+    <Height>64</Height>
     <Text>12103</Text>
     <PositionFigure>
-      <X>613</X>
-      <Y>330</Y>
+      <X>647</X>
+      <Y>312</Y>
     </PositionFigure>
     <NameColumn>PlantColumn</NameColumn>
   </RectangleW>

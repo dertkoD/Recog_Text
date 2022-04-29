@@ -33,7 +33,7 @@ namespace WinFormsTextRecognising
         Font drawFont = new Font("Times New Roman", 12);
         SolidBrush drawBrush = new SolidBrush(Color.Black);
 
-        Bitmap bmpD = new Bitmap(1000, 1000);
+        Bitmap bmpD = new Bitmap(1080, 1080);
         int numberPicture = 0;
         //int xAbsolyte = 0;
         //int yAbsolyte = 0;
@@ -57,8 +57,21 @@ namespace WinFormsTextRecognising
             label3.Text = test.Name;
             Image temp = Image.FromFile(fileName);
             var img = ResizeImage(temp, 1080, 1080);
+            var bmp = new Bitmap(1080, 1080);
+
+            foreach(var rec in desiredRectangles)
+            {
+                var rect = new Rectangle(rec.PositionFigure, new Size(rec.Width, rec.Height));
+                Bitmap without_area = CropImage((Bitmap)img, rect);
+
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.DrawImage(without_area, rec.PositionFigure);
+                }
+            }
+
             MemoryStream memoryStream = new MemoryStream();
-            img.Save(memoryStream, ImageFormat.Png);
+            bmp.Save(memoryStream, ImageFormat.Png);
 
             string base64 = Convert.ToBase64String(memoryStream.ToArray());
 
@@ -385,21 +398,21 @@ namespace WinFormsTextRecognising
         }
         public void putValuesInColumns(Rectangle rectangleTrue, string nameColumn, List<RectangleW> listRectangles, string needWord)
         {
-            int s1 = 0;
-            int s2 = 0;
-            bool first = true;
+            //int s1 = 0;
+            //int s2 = 0;
+            //bool first = true;
             var wordA = string.Empty;
 
             foreach (var rec in listRectangles)
             {
                 var size = new Size(rec.Width, rec.Height);
                 var rectangleNew = new Rectangle(rec.PositionFigure, size);
-                var wordTrue = rec.Text;
+                //var wordTrue = rec.Text;
 
-                var rectangleNewCopy = rectangleNew;
+                //var rectangleNewCopy = rectangleNew;
 
-                rectangleNewCopy.Intersect(rectangleTrue);
-                s2 = rectangleNewCopy.Width * rectangleNewCopy.Height;
+                //rectangleNewCopy.Intersect(rectangleTrue);
+                //s2 = rectangleNewCopy.Width * rectangleNewCopy.Height;
 
 
                 if (rectangleTrue.IntersectsWith(rectangleNew))
@@ -474,25 +487,35 @@ namespace WinFormsTextRecognising
 
             if (nameColumn.Contains("Size"))
             {
-                var needWordSplit = needWord.Split('-');
-
                 for (var word = 0; word < WORD.Length; word++)
                 {
-                    if ((WORD[word].Contains(needWordSplit[0]) || WORD[word].Contains(needWordSplit[1])) && WORD[word].Contains("-"))
-                        wordB += WORD[word];
+                    if (WORD[word].Contains("-"))
+                    {
+                        if (WORD[word].Length == 1)
+                            wordB = WORD[word - 1] + WORD[word] + WORD[word + 1];
+                        else
+                            wordB = WORD[word];
+                    }
                 }
             }
             else if (nameColumn.Contains("Net"))
             {
                 for (var word = 0; word < WORD.Length; word++)
                 {
-                    if (WORD[word].Contains(","))
+                    if (WORD[word].Contains(",") || WORD[word].Contains("."))
                     {
                         if (WORD[word].Length == 5)
                             wordB = WORD[word];
                         else
                             wordB = WORD[word] + WORD[word + 1];
-                    }               
+                    }
+                    else if (string.IsNullOrEmpty(wordB) && (WORD[word].Contains("KG") || WORD[word].Contains("kg")))
+                    {
+                        if (WORD[word].Contains(".") || WORD[word].Contains(","))
+                            wordB = WORD[word - 1];
+                        else
+                            wordB = WORD[word - 1];
+                    }
                 }
             }
             else if (nameColumn.Contains("Elaboration"))
@@ -506,15 +529,32 @@ namespace WinFormsTextRecognising
 
                     if (needWordSplit.Length == 1)
                         needWordSplit = needWord.Split('-');
-                    //DateTime date;
-                    //bool isDate = DateTime.TryParse(WORD[word], out date);
 
-                    //if (isDate)
-                    //    wordB = WORD[word];
-                    //else if (WORD[word].Contains(needWordSplit[0]) || WORD[word].Contains(needWordSplit[1]) || WORD[word].Contains(needWordSplit[2]))
-                    //{
+                    if (WORD[word].Contains(needWordSplit[2]))
+                    {
+                        if (WORD[word].Length == 10)
+                            wordB = WORD[word];
+                        else if (WORD[word].Length == 4 && (WORD[word - 1].Length == 2 || WORD[word - 1].Length == 3))
+                            wordB = WORD[word - 2] + "." + WORD[word - 1] + "." + WORD[word];
+                        else if (WORD[word].Length == 4 && (WORD[word - 1].Length == 5 || WORD[word - 1].Length == 6))
+                            wordB = WORD[word - 1] + "." + WORD[word];
+                        else if (WORD[word].Length == 7)
+                            wordB = WORD[word - 1] + "." + WORD[word];
+                    }
+                }
+            }
+            else if (nameColumn.Contains("Best"))
+            {
+                for (var word = 0; word < WORD.Length; word++)
+                {
+                    var needWordSplit = needWord.Split('/');
 
-                    //}
+                    if (needWordSplit.Length == 1)
+                        needWordSplit = needWord.Split('.');
+
+                    if (needWordSplit.Length == 1)
+                        needWordSplit = needWord.Split('-');
+
                     if (WORD[word].Contains(needWordSplit[2]))
                     {
                         if (WORD[word].Length == 10)
@@ -654,39 +694,19 @@ namespace WinFormsTextRecognising
             }
         }
 
-        //public void putValuesInColumnsCustomShape(List<RectangleW> listRectangles, Dictionary<string, List<Point>> areaRandom)
-        //{
-        //    bool first = true;
-        //    foreach (var rec in listRectangles)
-        //    {
-        //        var size = new Size(rec.Width, rec.Height);
-        //        var rectangleNew = new Rectangle(rec.PositionFigure, size);
-        //        foreach (var point in areaRandom)
-        //        {
-        //            GraphicsPath dsd = new GraphicsPath();
-        //            dsd.AddPolygon(point.Value.ToArray());
-        //            GraphicsPath asa = new GraphicsPath();
-        //            asa.AddRectangle(rectangleNew);
+        public Bitmap CropImage(Bitmap source, Rectangle section)
+        {
+            // An empty bitmap which will hold the cropped image
+            Bitmap bmp = new Bitmap(section.Width, section.Height);
 
-        //            var r = new Region(dsd);
+            Graphics g = Graphics.FromImage(bmp);
 
-        //            using (var g = Graphics.FromImage(bmpD))
-        //            {
-        //                g.DrawPath(Pens.Black, dsd);
-        //            }
+            // Draw the given area (section) of the source image
+            // at location 0,0 on the empty bitmap (bmp)
+            g.DrawImage(source, 0, 0, section, GraphicsUnit.Pixel);
 
-        //            if (r.IsVisible(rectangleNew))
-        //            {
-        //                r.Intersect(asa);
-        //                r.Xor(rectangleNew);
-        //                dataGridView1.Rows[numberPicture].Cells[point.Key].Value = rec.Text;
-        //                break;
-        //            }
-        //        }
-        //    }
-
-        //    pictureBox1.Refresh();
-        //}
+            return bmp;
+        }
 
         public string ImgToStr(Image Img)
         {
@@ -799,9 +819,6 @@ namespace WinFormsTextRecognising
             }
         }
 
-        RectangleW[] massRec = new RectangleW[2];
-        RectangleW recDelete;
-        int count = 0;
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             //List<RectangleW> recTrueList;
@@ -916,7 +933,7 @@ namespace WinFormsTextRecognising
             //}
         }
 
-        private Image ResizeImage(Image img, decimal maxWidth, decimal maxHeight)
+        public Image ResizeImage(Image img, decimal maxWidth, decimal maxHeight)
         {
             decimal srcWidth = img.Width;
             decimal srcHeight = img.Height;
@@ -1194,6 +1211,201 @@ namespace WinFormsTextRecognising
             pictureBox1.Image = bmpD;
             button1.Enabled = true;
         }
+
+        //FileSystemWatcher watcher = new FileSystemWatcher();
+
+        //public void Check()
+        //{
+        //    if (args.Length != 2)
+        //    {
+        //        using (var fbd = new FolderBrowserDialog())
+        //        {
+        //            DialogResult result = fbd.ShowDialog();
+
+        //            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+        //            {
+        //                args[0] = fbd.SelectedPath;
+        //            }
+        //            else
+        //                return;
+        //        }
+        //    }
+
+        //    watcher.Path = args[0];
+
+        //    watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+        //    watcher.Filter = "*.jpeg";
+
+        //    watcher.Created += new FileSystemEventHandler(OnCreatedAsync);
+        //    watcher.EnableRaisingEvents = true;
+        //}
+
+        public async void OnCreatedAsync(object source, FileSystemEventArgs e)
+        {
+            Image temp = Image.FromFile(e.FullPath);
+            var img = ResizeImage(temp, 1080, 1080);
+            string base64 = ImgToStr(img);
+
+            TextDetectionConfig textDetectionConfig = new TextDetectionConfig();
+            textDetectionConfig.languageCodes.Add("*");
+            textDetectionConfig.model = "passport";
+
+            Feature f = new Feature();
+            f.type = "TEXT_DETECTION";
+            f.text_detection_config = textDetectionConfig;
+
+            AnalyzeSpec analyze = new AnalyzeSpec();
+            analyze.content = base64;
+            analyze.features.Add(f);
+            analyze.mime_type = "image";
+
+            TextRecognising bodyJson = new TextRecognising();
+            bodyJson.folderId = "b1gr5t1i5o6d4p2h45rn";
+            bodyJson.analyze_specs.Add(analyze);
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+
+            string json = System.Text.Json.JsonSerializer.Serialize(bodyJson, options);
+
+            string outputJson = await RecognitionRequestAsync(json);
+
+            var restored = System.Text.Json.JsonSerializer.Deserialize<AllResults>(outputJson);
+
+            foreach (var results in restored.results)
+            {
+                foreach(var result in results.results)
+                {
+                    foreach(var pages in result.textDetection.pages)
+                    {
+                        foreach (var entity in pages.entities)
+                        {
+                            if (entity.name == "name")
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnName"].Value = entity.text;
+                            }
+                            else if (entity.name == "middle_name")
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnMiddleName"].Value = entity.text;
+                            }
+                            else if (entity.name == "surname")
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnSurname"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("gender"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnGender"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("citizenship"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnCitizenship"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("birth_date"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnBirthDate"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("birth_place"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnBirthPlace"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("number"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnNumber"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("issue_date"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnIssueDate"].Value = entity.text;
+                            }
+                            else if (entity.name.Contains("birth_place"))
+                            {
+                                dataGridView2.Rows[0].Cells["ColumnBirthPlace"].Value = entity.text;
+                            }
+                        }
+                    }
+                }  
+            }
+        }
+
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private System.IO.FileSystemWatcher m_Watcher;
+        private bool m_bIsWatching;
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (m_bIsWatching)
+            {
+                m_bIsWatching = false;
+                m_Watcher.EnableRaisingEvents = false;
+                m_Watcher.Dispose();
+                button3.BackColor = Color.LightSkyBlue;
+                button3.Text = "Start Watching";
+            }
+            else
+            {
+                m_bIsWatching = true;
+                button3.BackColor = Color.Red;
+                button3.Text = "Stop Watching";
+                m_Watcher = new System.IO.FileSystemWatcher();
+
+                if (File.Exists("Path.txt"))
+                {
+                    using (StreamReader reader = new StreamReader("Path.txt"))
+                    {
+                        var path = reader.ReadToEnd();
+                        var l = path.Length;
+                        m_Watcher.Path = path.Remove(l - 2);
+                    }
+                }
+                else
+                {
+                    using (var fbd = new FolderBrowserDialog())
+                    {
+                        DialogResult result = fbd.ShowDialog();
+
+                        if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                        {
+                            m_Watcher.Path = fbd.SelectedPath + "\\";
+                        }
+                        else
+                            return;
+                    }
+
+                    using (StreamWriter writer = new StreamWriter("Path.txt", false))
+                    {
+                        writer.WriteLine(m_Watcher.Path);
+                    }
+                }
+
+                m_Watcher.Filter = "*.";
+
+                m_Watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
+                                     | NotifyFilters.FileName | NotifyFilters.DirectoryName;
+
+                m_Watcher.Created += new FileSystemEventHandler(OnCreatedAsync);
+
+                m_Watcher.EnableRaisingEvents = true;
+            }
+        }
+    }
+
+    public class Entity
+    {
+        public string name { get; set; }
+        public string text { get; set; }
+    }
+
+    public class Passport
+    {
+        public List<Entity> entities { get; set; }
     }
 
     public class RectangleW
